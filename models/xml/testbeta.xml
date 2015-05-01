@@ -1,0 +1,122 @@
+<!DOCTYPE SceneRayTracing>
+<Scene>
+ <Effects Radius="1" FocalLength="0" DOF="1"/>
+ <Perspective Far="120000" Near="0.01" Width="806" Angle="45" Height="561"/>
+ <Camera>
+  <Eye x="-39.8401" y="31.2522" z="46.9301"/>
+  <At x="-0.665" y="7.424" z="-2.124"/>
+  <Up x="0.221447" y="0.934918" z="-0.27729"/>
+ </Camera>
+ <Objects>
+  <Object Type="OBJCUBE" Enabled="1" Name="      Cubo" Texture="" Bump="">
+   <Position x="0" y="0" z="0"/>
+   <Rotation x="0" y="0" z="0"/>
+   <Scale x="50" y="1" z="50"/>
+   <Material Reflection="0" GLossyReflection="0" Shininess="0.4" Refraction="0" GLossyRefraction="0">
+    <Ambient r="0.1" b="0.175" g="0.187"/>
+    <Specular r="0.297" b="0.307" g="0.308"/>
+    <Diffuse r="0.396" b="0.691" g="0.742"/>
+   </Material>
+   <Effects Motion="1">
+    <Translate x="0" y="0" z="0"/>
+    <Rotate x="0" y="0" z="0"/>
+   </Effects>
+  </Object>
+  <Object Type="OBJSPHERE" Enabled="1" Name="      Esfera" Texture="" Bump="">
+   <Position x="0" y="15" z="0"/>
+   <Rotation x="0" y="0" z="0"/>
+   <Scale x="5" y="5" z="5"/>
+   <Material Reflection="0" GLossyReflection="0" Shininess="0.4" Refraction="0" GLossyRefraction="0">
+    <Ambient r="0.25" b="0.25" g="0.25"/>
+    <Specular r="0.77" b="0.77" g="0.77"/>
+    <Diffuse r="0.4" b="0.4" g="0.4"/>
+   </Material>
+   <Effects Motion="1">
+    <Translate x="0" y="0" z="0"/>
+    <Rotate x="0" y="0" z="0"/>
+   </Effects>
+  </Object>
+  <Object Type="OBJSPHERE" Enabled="1" Name="      Esfera" Texture="" Bump="">
+   <Position x="-7" y="8" z="10"/>
+   <Rotation x="0" y="0" z="0"/>
+   <Scale x="3" y="3" z="3"/>
+   <Material Reflection="0" GLossyReflection="0" Shininess="0.4" Refraction="0" GLossyRefraction="0">
+    <Ambient r="0.175" b="0.012" g="0.012"/>
+    <Specular r="0.728" b="0.627" g="0.627"/>
+    <Diffuse r="0.614" b="0.041" g="0.041"/>
+   </Material>
+   <Effects Motion="1">
+    <Translate x="0" y="-1.5" z="0"/>
+    <Rotate x="0" y="0" z="0"/>
+   </Effects>
+  </Object>
+  <Object Type="OBJCYLINDER" Enabled="1" Name="      Cilindro" Texture="" Bump="">
+   <Position x="9" y="0" z="-11"/>
+   <Rotation x="0" y="0" z="0"/>
+   <Scale x="3" y="4.5" z="3"/>
+   <Material Reflection="0" GLossyReflection="0" Shininess="0.4" Refraction="0" GLossyRefraction="0">
+    <Ambient r="0.135" b="0.157" g="0.222"/>
+    <Specular r="0.316" b="0.316" g="0.316"/>
+    <Diffuse r="0.54" b="0.63" g="0.89"/>
+   </Material>
+   <Effects Motion="1">
+    <Translate x="0" y="0" z="0"/>
+    <Rotate x="0" y="0" z="0"/>
+   </Effects>
+  </Object>
+  <Object Type="OBJCONE" Enabled="1" Name="      Cone" Texture="" Bump="">
+   <Position x="14" y="4" z="4"/>
+   <Rotation x="0" y="0" z="0"/>
+   <Scale x="4" y="6" z="4"/>
+   <Material Reflection="0" GLossyReflection="0" Shininess="0.4" Refraction="0" GLossyRefraction="0">
+    <Ambient r="0.11" b="0.11" g="0.06"/>
+    <Specular r="0.33" b="0.52" g="0.33"/>
+    <Diffuse r="0.43" b="0.54" g="0.47"/>
+   </Material>
+   <Effects Motion="1">
+    <Translate x="0" y="0" z="0"/>
+    <Rotate x="0" y="0" z="0"/>
+   </Effects>
+  </Object>
+  <Object Type="OBJCUBE" Enabled="1" Name="      Cubo" Texture="" Bump="">
+   <Position x="2" y="4" z="14"/>
+   <Rotation x="0" y="0" z="0"/>
+   <Scale x="6" y="6" z="6"/>
+   <Material Reflection="0" GLossyReflection="0" Shininess="0.4" Refraction="0" GLossyRefraction="0">
+    <Ambient r="0.054" b="0.066" g="0.05"/>
+    <Specular r="0.333" b="0.346" g="0.329"/>
+    <Diffuse r="0.183" b="0.225" g="0.17"/>
+   </Material>
+   <Effects Motion="1">
+    <Translate x="0" y="0" z="0"/>
+    <Rotate x="0" y="0" z="0"/>
+   </Effects>
+  </Object>
+ </Objects>
+ <Lights>
+  <Light Type="LIGHT_AMBIENT" Exponent="-1" Enable="1" Name="      Ambient Light" AngleInner="-1" Angle="-1">
+   <Position x="0" y="0" z="0"/>
+   <Direction x="0" y="0" z="0"/>
+   <VecA x="0" y="0" z="0"/>
+   <VecB x="0" y="0" z="0"/>
+   <Attenuation x="0" y="0" z="0"/>
+   <Material>
+    <Ambient r="1" b="1" g="1"/>
+    <Specular r="0" b="0" g="0"/>
+    <Diffuse r="0" b="0" g="0"/>
+   </Material>
+  </Light>
+  <Light Type="LIGHT_PONTUAL" Exponent="-1" Enable="1" Name="      Pontual Light" AngleInner="-1" Angle="-1">
+   <Position x="0" y="25" z="0"/>
+   <Direction x="0" y="0" z="0"/>
+   <VecA x="0" y="0" z="0"/>
+   <VecB x="0" y="0" z="0"/>
+   <Attenuation x="1" y="0" z="0"/>
+   <Material>
+    <Ambient r="1" b="1" g="1"/>
+    <Specular r="0.47451" b="0.47451" g="0.47451"/>
+    <Diffuse r="0.8" b="0.8" g="0.8"/>
+   </Material>
+  </Light>
+ </Lights>
+</Scene>

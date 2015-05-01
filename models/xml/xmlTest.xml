@@ -1,0 +1,4 @@
+<!DOCTYPE SceneRayTracing>
+<Scene>
+ <Effects FocalLength="0" DOF="1" Radius="1"/>
+</Scene>

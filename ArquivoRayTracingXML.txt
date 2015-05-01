@@ -1,0 +1,42 @@
+<!XML>
+<Scene>
+    <Effects DOF="" Radius="" FocalLength=""></Effects>
+    <Perspective Near="" Width="" Angle="" Far="" Height=""></Perspective>
+    <Camera>
+      <Eye x="" y="" z="">
+      <At x="" y="" z="">
+      <Up x="" y="" z="">
+    </Camera>
+    <Objects>
+	<Object Name="" Texture="" Bump="" Type="" Enable="">
+		<Position x="" y="" z="">
+		<Rotate x="" y="" z="">
+		<Scale x="" y="" z="">
+	        <Material GLossyReflection="" Reflection="" GLossyRefraction="" Refraction="" Shininess="">
+			<Ambient r="" g="" b="">
+			<Specular r="" g="" b="">
+			<Diffuse r="" g="" b="">
+		</Material>
+		<Effects Motion="">
+			<Translate x="" y="" z=""></Translate>
+			<Rotate x="" y="" z=""></Rotate>
+		</Effects>
+	</Object>
+	...
+    <Objects>
+    <Lights>
+	<Light AngleInner="" Angle="" Type="" Exponent="" Enable="" Name="">
+   		<Position x="0" y="25" z="0"/>
+   		<Direction x="0" y="0" z="0"/>
+   		<VecA x="0" y="0" z="0"/>
+   		<VecB x="0" y="0" z="0"/>
+		<Attenuation x="1" y="0" z="0"/>
+   		<Material>
+    			<Ambient g="" r="" b=""/>
+    			<Specular g="" r="" b=""/>
+    			<Diffuse g="" r="" b=""/>
+   		</Material>
+  	</Light>
+	...
+    </Lights>
+</Scene>
