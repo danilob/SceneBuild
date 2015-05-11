@@ -1009,6 +1009,9 @@ void Scene::makeClone(Object *obj)
     clone->getMesh()->setMaterial(obj->getMesh()->getMaterialM()->getAmbiente(),obj->getMesh()->getMaterialM()->getDiffuse(),obj->getMesh()->getMaterialM()->getSpecular(),obj->getMesh()->getMaterialM()->getShininess());
     obj->setSelected(false);
     clone->setSelected(true);
+    Matrix4x4 m = clone->getMatrixTransformation();
+    m.setTranslate(m.getTranslateSeted()+Vec4(0.5,0.0,0.0));
+    clone->setTransform(m);
 
 }
 
@@ -1025,7 +1028,7 @@ Object* Scene::addObject(int type)
     case BLOCK_CUBE:{
         Cube *cube = new Cube();
         cube->setName("Cubo");
-        cube->setMaterial(MATERIAL_SILVER);
+        cube->setMaterial(MATERIAL_EMERALD);
         objects.push_back(cube);
         return cube;
         break;
@@ -1033,7 +1036,7 @@ Object* Scene::addObject(int type)
     case BLOCK_PRISM:{
         Prism *prism = new Prism();
         prism->setName("Prisma");
-        prism->setMaterial(MATERIAL_SILVER);
+        prism->setMaterial(MATERIAL_RUBY);
         objects.push_back(prism);
         return prism;
         break;
@@ -1042,7 +1045,7 @@ Object* Scene::addObject(int type)
     case BLOCK_HEMISPHERE:{
         HemiSphere *hemisphere = new HemiSphere();
         hemisphere->setName("Semi-Esfera");
-        hemisphere->setMaterial(MATERIAL_SILVER);
+        hemisphere->setMaterial(MATERIAL_BRASS);
         objects.push_back(hemisphere);
         return hemisphere;
         break;
@@ -1050,7 +1053,7 @@ Object* Scene::addObject(int type)
     case BLOCK_SPHERE:{
         Sphere *sphere = new Sphere();
         sphere->setName("Esfera");
-        sphere->setMaterial(MATERIAL_SILVER);
+        sphere->setMaterial(MATERIAL_GOLD);
         objects.push_back(sphere);
         return sphere;
         break;
@@ -1058,7 +1061,7 @@ Object* Scene::addObject(int type)
     case BLOCK_CONE:{
         Cone *cone = new Cone();
         cone->setName("Cone");
-        cone->setMaterial(MATERIAL_SILVER);
+        cone->setMaterial(MATERIAL_BRONZE);
         objects.push_back(cone);
         return cone;
         break;
@@ -1066,7 +1069,7 @@ Object* Scene::addObject(int type)
     case BLOCK_PLANE:{
             Plane *plane = new Plane();
             plane->setName("Plano");
-            plane->setMaterial(MATERIAL_SILVER);
+            plane->setMaterial(MATERIAL_TURQUOSIE);
             objects.push_back(plane);
             return plane;
             break;
@@ -1075,7 +1078,7 @@ Object* Scene::addObject(int type)
     case BLOCK_CYLINDER:{
         Cylinder *cylinder = new Cylinder();
         cylinder->setName("Cilindro");
-        cylinder->setMaterial(MATERIAL_SILVER);
+        cylinder->setMaterial(MATERIAL_RUBY);
         objects.push_back(cylinder);
         return cylinder;
         break;
@@ -1084,37 +1087,42 @@ Object* Scene::addObject(int type)
 
 }
 
-void Scene::addLight(int type)
+Light *Scene::addLight(int type)
 {
     switch (type){
     case (LIGHT_AMBIENT):{
         AmbientLight* newDir = new AmbientLight();
         newDir->setEnabled(false);
         this->pushLights(newDir);
+        return newDir;
         break;
     }
     case (LIGHT_DIRECTIONAL):{
         DirectionalLight* newDir = new DirectionalLight();
         newDir->setEnabled(false);
         this->pushLights(newDir);
+        return newDir;
         break;
     }
     case (LIGHT_SPOT):{
         SpotLight* newDir = new SpotLight();
         newDir->setEnabled(false);
         this->pushLights(newDir);
+        return newDir;
         break;
     }
     case (LIGHT_PONTUAL):{
         PontualLight* newDir = new PontualLight();
         newDir->setEnabled(false);
         this->pushLights(newDir);
+        return newDir;
         break;
     }
     case (LIGHT_AREA):{
         AreaLight* newDir = new AreaLight();
         newDir->setEnabled(false);
         this->pushLights(newDir);
+        return newDir;
         break;
     }
     }

@@ -516,6 +516,7 @@ Ray RayTracing::depthOfField(Vec4 pixel,float radius, float distancefocus)
 
 Object *RayTracing::objectClicked(Scene *scn, int width, int height)
 {
+    if(scn->objects.size()==0) return NULL;
     Matrix4x4 changetoviewer;
     changetoviewer.setIdentity();
     Vec4 kv,iv,jv,kvl,ivl,jvl;

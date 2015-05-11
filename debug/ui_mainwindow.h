@@ -65,6 +65,10 @@ public:
     QAction *actionScreenShot;
     QAction *actionScreanShot_Render;
     QAction *actionCone;
+    QAction *actionD;
+    QAction *actionSave_As;
+    QAction *actionAbout;
+    QAction *actionShortcuts;
     QWidget *centralWidget;
     QGridLayout *gridLayout;
     QVBoxLayout *verticalLayout;
@@ -320,11 +324,13 @@ public:
     QLabel *width_l;
     QMenuBar *menuBar;
     QMenu *menuFile;
+    QMenu *menuOpen_Recent_File;
     QMenu *menuObject;
     QMenu *menuLights;
     QMenu *menuObject_2;
     QMenu *menuLight;
     QMenu *menuOptions;
+    QMenu *menuHelp;
 
     void setupUi(QMainWindow *MainWindow)
     {
@@ -378,6 +384,14 @@ public:
         actionScreanShot_Render->setObjectName(QStringLiteral("actionScreanShot_Render"));
         actionCone = new QAction(MainWindow);
         actionCone->setObjectName(QStringLiteral("actionCone"));
+        actionD = new QAction(MainWindow);
+        actionD->setObjectName(QStringLiteral("actionD"));
+        actionSave_As = new QAction(MainWindow);
+        actionSave_As->setObjectName(QStringLiteral("actionSave_As"));
+        actionAbout = new QAction(MainWindow);
+        actionAbout->setObjectName(QStringLiteral("actionAbout"));
+        actionShortcuts = new QAction(MainWindow);
+        actionShortcuts->setObjectName(QStringLiteral("actionShortcuts"));
         centralWidget = new QWidget(MainWindow);
         centralWidget->setObjectName(QStringLiteral("centralWidget"));
         gridLayout = new QGridLayout(centralWidget);
@@ -397,7 +411,7 @@ public:
         scrollObject->setWidgetResizable(true);
         scrollAreaWidgetContents = new QWidget();
         scrollAreaWidgetContents->setObjectName(QStringLiteral("scrollAreaWidgetContents"));
-        scrollAreaWidgetContents->setGeometry(QRect(0, 0, 248, 949));
+        scrollAreaWidgetContents->setGeometry(QRect(0, 0, 248, 925));
         verticalLayout_2 = new QVBoxLayout(scrollAreaWidgetContents);
         verticalLayout_2->setSpacing(6);
         verticalLayout_2->setContentsMargins(11, 11, 11, 11);
@@ -909,15 +923,17 @@ public:
         orientationLight->setObjectName(QStringLiteral("orientationLight"));
         gridLayout_7 = new QGridLayout(orientationLight);
         gridLayout_7->setSpacing(6);
-        gridLayout_7->setContentsMargins(0, 0, 0, 0);
+        gridLayout_7->setContentsMargins(11, 11, 11, 11);
         gridLayout_7->setObjectName(QStringLiteral("gridLayout_7"));
         gridLayout_7->setHorizontalSpacing(1);
+        gridLayout_7->setContentsMargins(0, 0, 0, 0);
         positionLayoutLight = new QFrame(orientationLight);
         positionLayoutLight->setObjectName(QStringLiteral("positionLayoutLight"));
         positionLayout = new QVBoxLayout(positionLayoutLight);
         positionLayout->setSpacing(1);
-        positionLayout->setContentsMargins(0, 0, 0, 0);
+        positionLayout->setContentsMargins(11, 11, 11, 11);
         positionLayout->setObjectName(QStringLiteral("positionLayout"));
+        positionLayout->setContentsMargins(0, 0, 0, 0);
         label_21 = new QLabel(positionLayoutLight);
         label_21->setObjectName(QStringLiteral("label_21"));
 
@@ -951,8 +967,9 @@ public:
         directionLayoutLight->setObjectName(QStringLiteral("directionLayoutLight"));
         directionLayout = new QVBoxLayout(directionLayoutLight);
         directionLayout->setSpacing(1);
-        directionLayout->setContentsMargins(0, 0, 0, 0);
+        directionLayout->setContentsMargins(11, 11, 11, 11);
         directionLayout->setObjectName(QStringLiteral("directionLayout"));
+        directionLayout->setContentsMargins(0, 0, 0, 0);
         label_22 = new QLabel(directionLayoutLight);
         label_22->setObjectName(QStringLiteral("label_22"));
 
@@ -1010,8 +1027,9 @@ public:
         vectorsLayoutLight->setObjectName(QStringLiteral("vectorsLayoutLight"));
         vectorsLayout = new QVBoxLayout(vectorsLayoutLight);
         vectorsLayout->setSpacing(1);
-        vectorsLayout->setContentsMargins(0, 0, 0, 0);
+        vectorsLayout->setContentsMargins(11, 11, 11, 11);
         vectorsLayout->setObjectName(QStringLiteral("vectorsLayout"));
+        vectorsLayout->setContentsMargins(0, 0, 0, 0);
         verticalLayout_9 = new QVBoxLayout();
         verticalLayout_9->setSpacing(6);
         verticalLayout_9->setObjectName(QStringLiteral("verticalLayout_9"));
@@ -1095,8 +1113,9 @@ public:
         attenuationLayoutLight->setObjectName(QStringLiteral("attenuationLayoutLight"));
         attenuationLayout = new QVBoxLayout(attenuationLayoutLight);
         attenuationLayout->setSpacing(2);
-        attenuationLayout->setContentsMargins(0, 0, 0, 0);
+        attenuationLayout->setContentsMargins(11, 11, 11, 11);
         attenuationLayout->setObjectName(QStringLiteral("attenuationLayout"));
+        attenuationLayout->setContentsMargins(0, 0, 0, 0);
         label_23 = new QLabel(attenuationLayoutLight);
         label_23->setObjectName(QStringLiteral("label_23"));
 
@@ -1136,14 +1155,16 @@ public:
         ADSLight->setObjectName(QStringLiteral("ADSLight"));
         horizontalLayout = new QHBoxLayout(ADSLight);
         horizontalLayout->setSpacing(2);
-        horizontalLayout->setContentsMargins(0, 0, 0, 0);
+        horizontalLayout->setContentsMargins(11, 11, 11, 11);
         horizontalLayout->setObjectName(QStringLiteral("horizontalLayout"));
+        horizontalLayout->setContentsMargins(0, 0, 0, 0);
         ambienteProperty = new QFrame(ADSLight);
         ambienteProperty->setObjectName(QStringLiteral("ambienteProperty"));
         verticalLayout_11 = new QVBoxLayout(ambienteProperty);
         verticalLayout_11->setSpacing(6);
-        verticalLayout_11->setContentsMargins(1, 1, 1, 1);
+        verticalLayout_11->setContentsMargins(11, 11, 11, 11);
         verticalLayout_11->setObjectName(QStringLiteral("verticalLayout_11"));
+        verticalLayout_11->setContentsMargins(1, 1, 1, 1);
         label_26 = new QLabel(ambienteProperty);
         label_26->setObjectName(QStringLiteral("label_26"));
 
@@ -1163,8 +1184,9 @@ public:
         diffuseProperty->setObjectName(QStringLiteral("diffuseProperty"));
         verticalLayout_12 = new QVBoxLayout(diffuseProperty);
         verticalLayout_12->setSpacing(6);
-        verticalLayout_12->setContentsMargins(1, 1, 1, 1);
+        verticalLayout_12->setContentsMargins(11, 11, 11, 11);
         verticalLayout_12->setObjectName(QStringLiteral("verticalLayout_12"));
+        verticalLayout_12->setContentsMargins(1, 1, 1, 1);
         label_27 = new QLabel(diffuseProperty);
         label_27->setObjectName(QStringLiteral("label_27"));
 
@@ -1183,8 +1205,9 @@ public:
         specularProperty->setAutoFillBackground(false);
         verticalLayoutSpe = new QVBoxLayout(specularProperty);
         verticalLayoutSpe->setSpacing(6);
-        verticalLayoutSpe->setContentsMargins(1, 1, 1, 1);
+        verticalLayoutSpe->setContentsMargins(11, 11, 11, 11);
         verticalLayoutSpe->setObjectName(QStringLiteral("verticalLayoutSpe"));
+        verticalLayoutSpe->setContentsMargins(1, 1, 1, 1);
         label_28 = new QLabel(specularProperty);
         label_28->setObjectName(QStringLiteral("label_28"));
 
@@ -1205,8 +1228,9 @@ public:
         angleSpotLayoutLight->setObjectName(QStringLiteral("angleSpotLayoutLight"));
         angleSpotLayout = new QVBoxLayout(angleSpotLayoutLight);
         angleSpotLayout->setSpacing(1);
-        angleSpotLayout->setContentsMargins(0, 0, 0, 0);
+        angleSpotLayout->setContentsMargins(11, 11, 11, 11);
         angleSpotLayout->setObjectName(QStringLiteral("angleSpotLayout"));
+        angleSpotLayout->setContentsMargins(0, 0, 0, 0);
         horizontalLayout_14 = new QHBoxLayout();
         horizontalLayout_14->setSpacing(6);
         horizontalLayout_14->setObjectName(QStringLiteral("horizontalLayout_14"));
@@ -1279,8 +1303,9 @@ public:
         frame_3->setFrameShadow(QFrame::Plain);
         gridLayout_2 = new QGridLayout(frame_3);
         gridLayout_2->setSpacing(0);
-        gridLayout_2->setContentsMargins(0, 0, 0, 0);
+        gridLayout_2->setContentsMargins(11, 11, 11, 11);
         gridLayout_2->setObjectName(QStringLiteral("gridLayout_2"));
+        gridLayout_2->setContentsMargins(0, 0, 0, 0);
         tabWidget = new QTabWidget(frame_3);
         tabWidget->setObjectName(QStringLiteral("tabWidget"));
         tabWidget->setStyleSheet(QStringLiteral(""));
@@ -1896,6 +1921,8 @@ public:
         menuBar->setGeometry(QRect(0, 0, 913, 25));
         menuFile = new QMenu(menuBar);
         menuFile->setObjectName(QStringLiteral("menuFile"));
+        menuOpen_Recent_File = new QMenu(menuFile);
+        menuOpen_Recent_File->setObjectName(QStringLiteral("menuOpen_Recent_File"));
         menuObject = new QMenu(menuBar);
         menuObject->setObjectName(QStringLiteral("menuObject"));
         menuLights = new QMenu(menuBar);
@@ -1906,14 +1933,19 @@ public:
         menuLight->setObjectName(QStringLiteral("menuLight"));
         menuOptions = new QMenu(menuBar);
         menuOptions->setObjectName(QStringLiteral("menuOptions"));
+        menuHelp = new QMenu(menuBar);
+        menuHelp->setObjectName(QStringLiteral("menuHelp"));
         MainWindow->setMenuBar(menuBar);
 
         menuBar->addAction(menuFile->menuAction());
         menuBar->addAction(menuObject->menuAction());
         menuBar->addAction(menuLights->menuAction());
         menuBar->addAction(menuOptions->menuAction());
+        menuBar->addAction(menuHelp->menuAction());
         menuFile->addAction(actionOpen);
+        menuFile->addAction(menuOpen_Recent_File->menuAction());
         menuFile->addAction(actionSave);
+        menuFile->addAction(actionSave_As);
         menuFile->addSeparator();
         menuFile->addAction(actionQuit);
         menuObject->addAction(actionGrid);
@@ -1934,6 +1966,8 @@ public:
         menuLight->addAction(actionSpot);
         menuOptions->addAction(actionScreenShot);
         menuOptions->addAction(actionScreanShot_Render);
+        menuHelp->addAction(actionAbout);
+        menuHelp->addAction(actionShortcuts);
 
         retranslateUi(MainWindow);
 
@@ -1947,7 +1981,7 @@ public:
 
     void retranslateUi(QMainWindow *MainWindow)
     {
-        MainWindow->setWindowTitle(QApplication::translate("MainWindow", "Ray Tracing by Danilo Borges", 0));
+        MainWindow->setWindowTitle(QApplication::translate("MainWindow", "Scene Build by Danilo Silva", 0));
         actionOpen->setText(QApplication::translate("MainWindow", "Open", 0));
         actionOpen->setShortcut(QApplication::translate("MainWindow", "Ctrl+O", 0));
         actionSave->setText(QApplication::translate("MainWindow", "Save", 0));
@@ -1985,6 +2019,10 @@ public:
         actionScreanShot_Render->setText(QApplication::translate("MainWindow", "ScreenShot Render", 0));
         actionCone->setText(QApplication::translate("MainWindow", "Cone", 0));
         actionCone->setShortcut(QApplication::translate("MainWindow", "Ctrl+E", 0));
+        actionD->setText(QApplication::translate("MainWindow", "d", 0));
+        actionSave_As->setText(QApplication::translate("MainWindow", "Save As", 0));
+        actionAbout->setText(QApplication::translate("MainWindow", "About", 0));
+        actionShortcuts->setText(QApplication::translate("MainWindow", "Shortcuts", 0));
         groupBoxPropertiesObj->setTitle(QApplication::translate("MainWindow", "Properties Object", 0));
         selectedObj->setText(QApplication::translate("MainWindow", "Select", 0));
         enableObj->setText(QApplication::translate("MainWindow", "Enable", 0));
@@ -2146,11 +2184,13 @@ public:
         height_l->setText(QApplication::translate("MainWindow", "TextLabel", 0));
         width_l->setText(QApplication::translate("MainWindow", "TextLabel", 0));
         menuFile->setTitle(QApplication::translate("MainWindow", "File", 0));
+        menuOpen_Recent_File->setTitle(QApplication::translate("MainWindow", "Open Recent File", 0));
         menuObject->setTitle(QApplication::translate("MainWindow", "Edit", 0));
         menuLights->setTitle(QApplication::translate("MainWindow", "Add", 0));
         menuObject_2->setTitle(QApplication::translate("MainWindow", "Object", 0));
         menuLight->setTitle(QApplication::translate("MainWindow", "Light", 0));
         menuOptions->setTitle(QApplication::translate("MainWindow", "Options", 0));
+        menuHelp->setTitle(QApplication::translate("MainWindow", "Help", 0));
     } // retranslateUi
 
 };

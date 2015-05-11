@@ -1,5 +1,6 @@
 #include "glwidget.h"
 #include <GL/glut.h>
+#include "block/object.h"
 #include "block/cube.h"
 #include "block/prism.h"
 #include "block/cylinder.h"
@@ -286,12 +287,14 @@ void GLWidget::resizeGL(int w, int h)
 
 void GLWidget::updateCamera(Vec4 eye, Vec4 at, Vec4 up)
 {
-    cam_eye = cam->eye;
-    cam_at  = cam->at;
-    cam_up  = cam->up;
+
+    cam->eye = eye;
+    cam->at  = at;
+    cam->up  = up;
 //    last_pos = at;
     updateCameraGL();
-    updateGL();
+    //getCam(scene->viewer[0],scene->viewer[1],scene->viewer[2]);
+
 }
 
 void GLWidget::updateCameraGL()
@@ -308,9 +311,11 @@ void GLWidget::updateCameraGL()
     glMatrixMode(GL_MODELVIEW);
     glLoadIdentity();
     gluLookAt(cam->eye.x(),cam->eye.y(),cam->eye.z(),cam->at.x(),cam->at.y(),cam->at.z(),cam->up.x(),cam->up.y(),cam->up.z());
-    //scene->pushViewer(cam->eye,cam->at,cam->up);
     scene->pushViewport(width,height);
     scene->pushViewer(cam->eye,cam->at,cam->up);
+    //qDebug() << "Update Cam!" << scene->viewer[0].debug();
+    //scene->viewer[0].showVec4();
+    getCam(scene->viewer[0],scene->viewer[1],scene->viewer[2]);
     updateGL();
 
 }
@@ -354,6 +359,7 @@ void GLWidget::mouseMoveEvent(QMouseEvent *event)
     last_x = x;
     last_y = y;
     updateCameraGL();
+
 
 //    if(event->buttons() & Qt::LeftButton){
 //        //rever função de rotação da câmera
@@ -446,6 +452,7 @@ void GLWidget::mouseReleaseEvent(QMouseEvent *event)
     }
     last_x = x;
     last_y = y;
+    updateCameraGL();
     //getCamEye(cam->eye);
 //    move = false;
 //    trackingMouse = false;
@@ -458,13 +465,60 @@ void GLWidget::mouseReleaseEvent(QMouseEvent *event)
 
 void GLWidget::mousePressEvent(QMouseEvent *event)
 {
-    if(modeview!=0){
-        setSelectedObject(RayTracing::objectClicked(scene,event->pos().x(),height-event->pos().y()));
+    if((modeview==MODE_OBJECT) & (event->button() == Qt::LeftButton)){
+        updateCameraGL();
+        Object *obj_sel = RayTracing::objectClicked(scene,event->pos().x(),height-event->pos().y());
+        setSelectedObject(obj_sel);
+    }else if((modeview==MODE_OBJECT) & (event->button() == Qt::RightButton)){
+        updateCameraGL();
+        QMenu menu;
+        QMenu *openAct = new QMenu("Add Object");
+        QMenu *openAct2 = new QMenu("Add Light");
+        QAction *obj_cube= new QAction("Cube", this);
+        QAction *obj_cone= new QAction("Cone", this);
+        QAction *obj_sphere= new QAction("Sphere", this);
+        QAction *obj_cylinder= new QAction("Cylinder", this);
+        QAction *obj_hemisphere= new QAction("Hemisphere", this);
+        QAction *obj_plane= new QAction("Plane", this);
+        QAction *obj_prism= new QAction("Prism", this);
+        connect(obj_cube,SIGNAL(triggered()),this,SLOT(addCube()));
+        connect(obj_cone,SIGNAL(triggered()),this,SLOT(addCone()));
+        connect(obj_sphere,SIGNAL(triggered()),this,SLOT(addSphere()));
+        connect(obj_cylinder,SIGNAL(triggered()),this,SLOT(addCylinder()));
+        connect(obj_hemisphere,SIGNAL(triggered()),this,SLOT(addHemisphere()));
+        connect(obj_plane,SIGNAL(triggered()),this,SLOT(addPlane()));
+        connect(obj_prism,SIGNAL(triggered()),this,SLOT(addPrism()));
+        openAct->addAction(obj_cube);
+        openAct->addAction(obj_cone);
+        openAct->addAction(obj_sphere);
+        openAct->addAction(obj_cylinder);
+        openAct->addAction(obj_hemisphere);
+        openAct->addAction(obj_plane);
+        openAct->addAction(obj_prism);
+        menu.addMenu(openAct);
+        QAction *lig_area= new QAction("Area", this);
+        QAction *lig_direct= new QAction("Directional", this);
+        QAction *lig_pontual= new QAction("Pontual", this);
+        QAction *lig_spot= new QAction("Spot", this);
+        connect(lig_area,SIGNAL(triggered()),this,SLOT(addArea()));
+        connect(lig_direct,SIGNAL(triggered()),this,SLOT(addDirectional()));
+        connect(lig_pontual,SIGNAL(triggered()),this,SLOT(addPontual()));
+        connect(lig_spot,SIGNAL(triggered()),this,SLOT(addSpot()));
+        openAct2->addAction(lig_area);
+        openAct2->addAction(lig_direct);
+        openAct2->addAction(lig_pontual);
+        openAct2->addAction(lig_spot);
+        menu.addSeparator();
+        menu.addMenu(openAct2);
+        menu.exec(mapToGlobal(event->pos()));
+        //QGLWidget::mouseReleaseEvent(event);
+        updateCameraGL();
         return;
     }
+
     int y = event->pos().y();
     int x = event->pos().x();
-    // if the left button is pressed
+    // if the left button isessed
     if (event->button() & Qt::LeftButton) {
         // when the button is pressed
         lbpressed = true;
@@ -477,38 +531,8 @@ void GLWidget::mousePressEvent(QMouseEvent *event)
 
     last_x = x;
     last_y = y;
-    updateGL();
-
-//    if(event->buttons() && Qt::LeftButton && state_key==0)
-//    {
-//        trackingMouse = true;
-//        int y = height-event->pos().y();
-//        startMotion(event->pos().x(),y,height,width);
-////        Quaternion qnew;
-////                qnew.setQuaternion(cos(angletrack*M_PI/180),Vec4(axis[0],axis[1],axis[2]).unitary()*sin(angletrack*M_PI/180));
-////                //qnew = qnew.normalize();
-////                //q = q.normalize();
-////                //qnew = qnew.normalize();
-////                q = qnew;
-////                q = q.normalize();
-//        //Vec4 teste;
-//        //        cam_eye = q.getMatrix().vector(cam_eye);
-
-
-//    }else{
-//        int y = height-event->pos().y();
-//        stopMotion(event->pos().x(),y);
-
-//    }
-//    //updateGL();
-
-//    //    int pos_x = event->x();
-//    //    int pos_y = event->y();
-
-//    //    Vec4 pnow = mappingViewVertex(pos_x,pos_y);
-//    //    pnow.x3 = sqrt(1-pnow.x1*pnow.x1-pnow.x2*pnow.x2);
-//    //    last_pos = pnow;
-
+    //GLWidget::mouseReleaseEvent(event);
+    updateCameraGL();
 }
 
 void GLWidget::setDefaultWorld()
@@ -555,9 +579,16 @@ void GLWidget::updateLightingGL()
 
 void GLWidget::keyPressEvent(QKeyEvent *event)
 {
-    if(event->key() == Qt::Key_D){
-        modeview = MODE_DEFAULT;
+
+
+    if(event->modifiers()==Qt::CTRL && event->key() == Qt::Key_C ){
+        if (scene->getObjecSelected()){
+            scene->makeClone(scene->getObjecSelected());
+            listingObjects(scene->objects);
+            showObjectSelected(scene->getObjecSelected());
+        }
     }
+
     if(event->key() == Qt::Key_O){
         modeview = MODE_OBJECT;
         if(state_key == event->key()){
@@ -566,6 +597,11 @@ void GLWidget::keyPressEvent(QKeyEvent *event)
             state_key = event->key();
         }
     }
+
+    if(event->key() == Qt::Key_C){
+        modeview = MODE_DEFAULT;
+    }
+
     if(event->key() == Qt::Key_S ){
         modeview = MODE_SCALE;
         if(state_key == event->key()){
@@ -598,18 +634,12 @@ void GLWidget::keyPressEvent(QKeyEvent *event)
             removeObjectSelected();
     }
 
-    if(event->key() == Qt::Key_C ){
-        if (modeview!=MODE_DEFAULT && scene->getObjecSelected()){
-            scene->makeClone(scene->getObjecSelected());
-            listingObjects(scene->objects);
-            showObjectSelected(scene->getObjecSelected());
-        }
-    }
+
 
 
 
     if(modeview == MODE_ROTATE){
-        if(event->key() == Qt::Key_Up && event->modifiers()==Qt::ShiftModifier){ //scale +z
+        if(event->key() == Qt::Key_Right && event->modifiers()==Qt::ShiftModifier){ //scale +z
             for(int i=0;i<scene->objects.size();i++){
                 if(scene->objects.at(i)->isSelected()){
 
@@ -623,12 +653,14 @@ void GLWidget::keyPressEvent(QKeyEvent *event)
                     new_mat.setRotationX(mat.rotx);
                     new_mat.setTranslate(Vec4(mat.translate_m[12],mat.translate_m[13],mat.translate_m[14]));
                     setTransformMatrixToObjectSelected(new_mat);
+                    updateObjectInterface();
+                    return;
                 }
             }
 
 
         }
-        else if(event->key() == Qt::Key_Down && event->modifiers()==Qt::ShiftModifier){ //scale -z
+        else if(event->key() == Qt::Key_Left && event->modifiers()==Qt::ShiftModifier){ //scale -z
             for(int i=0;i<scene->objects.size();i++){
                 if(scene->objects.at(i)->isSelected()){
 
@@ -645,6 +677,8 @@ void GLWidget::keyPressEvent(QKeyEvent *event)
 
 
                     setTransformMatrixToObjectSelected(new_mat);
+                    updateObjectInterface();
+                    return;
                 }
             }
         }
@@ -733,25 +767,29 @@ void GLWidget::keyPressEvent(QKeyEvent *event)
 
 
     if(modeview == MODE_TRANSLATE){
-        if(event->key() == Qt::Key_Up && event->modifiers()==Qt::ShiftModifier){ //scale +z
+        if(event->key() == Qt::Key_Right && event->modifiers()==Qt::ShiftModifier){ //scale +z
             for(int i=0;i<scene->objects.size();i++){
                 if(scene->objects.at(i)->isSelected()){
 
                     Matrix4x4 mat = scene->objects.at(i)->getMatrixTransformation();
                     mat.translate(0,0,step);
                     setTransformMatrixToObjectSelected(mat);
+                    updateObjectInterface();
+                    return;
                 }
             }
 
 
         }
-        else if(event->key() == Qt::Key_Down && event->modifiers()==Qt::ShiftModifier){ //scale -z
+        else if(event->key() == Qt::Key_Left && event->modifiers()==Qt::ShiftModifier){ //scale -z
             for(int i=0;i<scene->objects.size();i++){
                 if(scene->objects.at(i)->isSelected()){
 
                     Matrix4x4 mat = scene->objects.at(i)->getMatrixTransformation();
                     mat.translate(0,0,-step);
                     setTransformMatrixToObjectSelected(mat);
+                    updateObjectInterface();
+                    return;
                 }
             }
         }
@@ -805,25 +843,28 @@ void GLWidget::keyPressEvent(QKeyEvent *event)
     }
 
     if(modeview == MODE_SCALE){
-        if(event->key() == Qt::Key_Up && event->modifiers()==Qt::ShiftModifier){ //scale +z
+        if(event->key() == Qt::Key_Right && event->modifiers()==Qt::ShiftModifier){ //scale +z
             for(int i=0;i<scene->objects.size();i++){
                 if(scene->objects.at(i)->isSelected()){
-
                     Matrix4x4 mat = scene->objects.at(i)->getMatrixTransformation();
                     mat.addscale(0,0,step);
                     setTransformMatrixToObjectSelected(mat);
+                    updateObjectInterface();
+                    return;
                 }
             }
 
 
         }
-        else if(event->key() == Qt::Key_Down && event->modifiers()==Qt::ShiftModifier){ //scale -z
+        else if(event->key() == Qt::Key_Left && event->modifiers()==Qt::ShiftModifier){ //scale -z
             for(int i=0;i<scene->objects.size();i++){
                 if(scene->objects.at(i)->isSelected()){
 
                     Matrix4x4 mat = scene->objects.at(i)->getMatrixTransformation();
                     mat.addscale(0,0,-step);
                     setTransformMatrixToObjectSelected(mat);
+                    updateObjectInterface();
+                    return;
                 }
             }
         }
@@ -864,23 +905,21 @@ void GLWidget::keyPressEvent(QKeyEvent *event)
                     Matrix4x4 mat = scene->objects.at(i)->getMatrixTransformation();
                     mat.addscale(0,-step,0);
                     setTransformMatrixToObjectSelected(mat);
+
                 }
             }
         }
-        for(int i=0;i<scene->objects.size();i++){
-            if(scene->objects.at(i)->isSelected()){
-                showObjectSelected(scene->objects.at(i));
-            }
-        }
-
+        updateObjectInterface();
     }
 
     if(state_key==0){
-        if(event->key() == Qt::Key_Up && event->modifiers()==Qt::ShiftModifier)
+        if(event->key() == Qt::Key_Up && event->modifiers()==Qt::ShiftModifier){
             cam_at.x3 += 1;
-        else if(event->key() == Qt::Key_Down && event->modifiers()==Qt::ShiftModifier)
+            return;
+        }else if(event->key() == Qt::Key_Down && event->modifiers()==Qt::ShiftModifier){
             cam_at.x3 -= 1;
-        else if(event->key() == Qt::Key_Left )
+            return;
+        }else if(event->key() == Qt::Key_Left )
             cam_at.x1 -= 1;
         else if(event->key() == Qt::Key_Right)
             cam_at.x1 += 1;
@@ -966,7 +1005,8 @@ void GLWidget::setSelectedObject(Object* obj)
         obj->setSelected(true);
         showObjectSelected(obj);
     }
-    updateGL();
+    updateCameraGL();
+
 
 }
 
@@ -994,6 +1034,102 @@ void GLWidget::setIdMaterialToObjectSelected(int m)
     }
     updateGL();
 
+}
+
+void GLWidget::addCube()
+{
+    Object *obj = scene->addObject(OBJCUBE);
+    listingObjects(scene->objects);
+    setSelectedObject(obj);
+    updateGL();
+}
+
+void GLWidget::addCone()
+{
+    Object *obj = scene->addObject(OBJCONE);
+    listingObjects(scene->objects);
+    setSelectedObject(obj);
+    updateGL();
+}
+
+void GLWidget::addCylinder()
+{
+    Object *obj = scene->addObject(OBJCYLINDER);
+    listingObjects(scene->objects);
+    setSelectedObject(obj);
+    updateGL();
+}
+
+void GLWidget::addSphere()
+{
+    Object *obj = scene->addObject(OBJSPHERE);
+    listingObjects(scene->objects);
+    setSelectedObject(obj);
+    updateGL();
+}
+
+void GLWidget::addPlane()
+{
+    Object *obj = scene->addObject(OBJPLANE);
+    listingObjects(scene->objects);
+    setSelectedObject(obj);
+    updateGL();
+}
+
+void GLWidget::addHemisphere()
+{
+    Object *obj = scene->addObject(OBJHEMISPHERE);
+    listingObjects(scene->objects);
+    setSelectedObject(obj);
+    updateGL();
+}
+
+void GLWidget::addPrism()
+{
+    Object *obj = scene->addObject(OBJPRISM);
+    listingObjects(scene->objects);
+    setSelectedObject(obj);
+    updateGL();
+}
+
+void GLWidget::addArea()
+{
+    Light *light = scene->addLight(LIGHT_AREA);
+    listingLights(scene->lights);
+    light->setEnabled(true);
+    light->setVisible(true);
+    showLightSelected(light);
+    updateCameraGL();
+}
+
+void GLWidget::addDirectional()
+{
+    Light *light = scene->addLight(LIGHT_DIRECTIONAL);
+    listingLights(scene->lights);
+    light->setEnabled(true);
+    light->setVisible(true);
+    showLightSelected(light);
+    updateCameraGL();
+}
+
+void GLWidget::addSpot()
+{
+    Light *light = scene->addLight(LIGHT_SPOT);
+    listingLights(scene->lights);
+    light->setEnabled(true);
+    light->setVisible(true);
+    showLightSelected(light);
+    updateCameraGL();
+}
+
+void GLWidget::addPontual()
+{
+    Light *light = scene->addLight(LIGHT_PONTUAL);
+    listingLights(scene->lights);
+    light->setEnabled(true);
+    light->setVisible(true);
+    showLightSelected(light);
+    updateCameraGL();
 }
 
 void GLWidget::setEnabledObjectSelected(bool b)
@@ -1262,12 +1398,12 @@ void GLWidget::showHBB(bool s)
 
 }
 
-void GLWidget::saveScene(QString file)
+void GLWidget::saveScene(QString file,bool b)
 {
     //file.push_back(".rc");
     scene->pushViewer(cam->eye,cam->at,cam->up);
     //Functions::saveScene(scene,file);
-    Functions::saveSceneXML(scene,file);
+    Functions::saveSceneXML(scene,file,b);
 
 }
 
@@ -1279,7 +1415,6 @@ void GLWidget::loadScene(QString file)
     std::vector<Object*> objects = this->scene->objects;
     for(int i=0;i<objects.size();i++) objects.at(i)->setSelected(false);
     updateProjection(scene->projection);
-    getCam(scene->viewer[0],scene->viewer[1],scene->viewer[2]);
     cam->eye = scene->viewer[0];
     cam->at = scene->viewer[1];
     cam->up = scene->viewer[2];
@@ -1288,7 +1423,7 @@ void GLWidget::loadScene(QString file)
     radiusDOF(scene->radius);
     focalDOF(scene->focal);
     updateCameraGL();
-    updateGL();
+    //getCam(scene->viewer[0],scene->viewer[1],scene->viewer[2]);
 
 }
 
@@ -1355,6 +1490,15 @@ void GLWidget::drawInformation()
     glMatrixMode(GL_PROJECTION);
     glPopMatrix();
     glEnable(GL_LIGHTING);
+}
+
+void GLWidget::updateObjectInterface()
+{
+    for(int i=0;i<scene->objects.size();i++){
+        if(scene->objects.at(i)->isSelected()){
+            showObjectSelected(scene->objects.at(i));
+        }
+    }
 }
 
 void GLWidget::renderScene(QGraphicsView *qw, int percent, int samples)

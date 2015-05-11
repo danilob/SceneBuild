@@ -10,7 +10,7 @@ public:
     static bool saveImage(int width,int height,const std::string &fileName);
     static bool saveScene(Scene* scene,QString fileName);
     static bool loadScene(Scene* scene,const std::string &fileName);
-    static bool saveSceneXML(Scene* scene,QString fileName);
+    static bool saveSceneXML(Scene* scene,QString fileName,bool flag=true);
     static bool loadSceneXML(Scene* scene,QString fileName);
 };
 

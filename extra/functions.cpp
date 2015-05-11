@@ -737,7 +737,7 @@ bool Functions::loadScene(Scene *scene, const string &fileName)
 
 }
 
-bool Functions::saveSceneXML(Scene *scene, QString fileName)
+bool Functions::saveSceneXML(Scene *scene, QString fileName, bool flag)
 {
     QDomDocument doc( "SceneRayTracing" );
     QDomElement root = doc.createElement( "Scene" );
@@ -964,8 +964,15 @@ bool Functions::saveSceneXML(Scene *scene, QString fileName)
     root.appendChild(lights);
 
     QString f = fileName.toStdString().data();
-    ofstream ff((f+".xml").toLocal8Bit().data());
-    ff << doc.toString().toLocal8Bit().data();
+    if(flag){
+        ofstream ff((f+".xml").toLocal8Bit().data());
+        ff << doc.toString().toLocal8Bit().data();
+    }
+    else{
+        ofstream ff((f).toLocal8Bit().data());
+        ff << doc.toString().toLocal8Bit().data();
+    }
+
     return true;
 }
 
@@ -987,7 +994,7 @@ bool Functions::loadSceneXML(Scene *scene, QString fileName)
         return false;
     scene->objects.clear();
     scene->lights.clear();
-    qDebug() << "Begin!";
+
     QDomNode n = root.firstChild();
     while( !n.isNull() )
     {
@@ -1053,7 +1060,6 @@ bool Functions::loadSceneXML(Scene *scene, QString fileName)
                     QString pathtexture = obj.attribute("Texture","");
                     QString name = obj.attribute("Name","");
                     bool enabled  = obj.attribute("Enabled","").toInt();
-                    qDebug() << name;
                     Object *object;
                     if (type=="OBJCUBE"){
                         object = new Cube();
@@ -1114,13 +1120,9 @@ bool Functions::loadSceneXML(Scene *scene, QString fileName)
                     float refle,refra,grefra,grefle,shine;
                     refle = material.attribute("Reflection","").toFloat(); //reflexão
                     refra = material.attribute("Refraction","").toFloat(); //refração
-                    grefle = material.attribute("Reflection","").toFloat(); //reflexão glossy
+                    grefle = material.attribute("GlossyReflection","").toFloat(); //reflexão glossy
                     grefra = material.attribute("GLossyRefraction","").toFloat(); //refração glossy
                     shine = material.attribute("Shininess","").toFloat(); //0~1 shininess do material
-                    object->getMesh()->setReflection(refle);
-                    object->getMesh()->setGlossyReflection(grefle);
-                    object->getMesh()->setRefraction(refra);
-                    object->getMesh()->setGlossyRefraction(grefra);
                     //contribuição ambiente
                     QDomElement amb = material.firstChildElement("Ambient").toElement();
                     vec.x1 = amb.attribute("r","").toFloat();
@@ -1143,6 +1145,10 @@ bool Functions::loadSceneXML(Scene *scene, QString fileName)
                     Vec4 specular = vec;
 
                     object->getMesh()->setMaterial(ambient,diffuse,specular,shine);
+                    object->getMesh()->setReflection(refle);
+                    object->getMesh()->setGlossyReflection(grefle);
+                    object->getMesh()->setRefraction(refra);
+                    object->getMesh()->setGlossyRefraction(grefra);
                     //efeito
                     QDomElement effect = obj.firstChildElement("Effects").toElement();
                     bool has = effect.attribute("Motion","").toInt();

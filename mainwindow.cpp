@@ -18,6 +18,16 @@ MainWindow::MainWindow(QWidget *parent) :
     ui(new Ui::MainWindow)
 {
     ui->setupUi(this);
+
+    for(int i=0;i<MaxRecentFiles;i++){
+        recentFilesActs[i] = new QAction(this);
+        recentFilesActs[i]->setVisible(false);
+        connect(recentFilesActs[i],SIGNAL(triggered()),this,SLOT(openRecentFile()));
+        ui->menuOpen_Recent_File->addAction(recentFilesActs[i]);
+    }
+
+    updateRecentFilesActions();
+
     this->showMaximized();
     defaultCamera();
     ui->ambMaterial->setText("");
@@ -155,6 +165,11 @@ MainWindow::MainWindow(QWidget *parent) :
     updateListObjects();
     updateListLights();
     selectedProperties(-1);
+    if(curFile.isEmpty()) ui->actionSave_As->setEnabled(false);
+
+    //arquivos recentes
+
+
 
 }
 
@@ -331,6 +346,19 @@ void MainWindow::setCamEye(Vec4 eye)
 
 void MainWindow::setCam(Vec4 eye, Vec4 at, Vec4 up)
 {
+    disconnect(ui->dEyex,SIGNAL(valueChanged(double)),this,SLOT(updadePositionCamera()));
+    disconnect(ui->dEyey,SIGNAL(valueChanged(double)),this,SLOT(updadePositionCamera()));
+    disconnect(ui->dEyez,SIGNAL(valueChanged(double)),this,SLOT(updadePositionCamera()));
+
+    disconnect(ui->dAtx,SIGNAL(valueChanged(double)),this,SLOT(updadePositionCamera()));
+    disconnect(ui->dAty,SIGNAL(valueChanged(double)),this,SLOT(updadePositionCamera()));
+    disconnect(ui->dAtz,SIGNAL(valueChanged(double)),this,SLOT(updadePositionCamera()));
+
+    disconnect(ui->dUpx,SIGNAL(valueChanged(double)),this,SLOT(updadePositionCamera()));
+    disconnect(ui->dUpy,SIGNAL(valueChanged(double)),this,SLOT(updadePositionCamera()));
+    disconnect(ui->dUpz,SIGNAL(valueChanged(double)),this,SLOT(updadePositionCamera()));
+
+
     ui->dEyex->setValue(eye.x1);
     ui->dEyey->setValue(eye.x2);
     ui->dEyez->setValue(eye.x3);
@@ -342,6 +370,18 @@ void MainWindow::setCam(Vec4 eye, Vec4 at, Vec4 up)
     ui->dAtx->setValue(at.x1);
     ui->dAty->setValue(at.x2);
     ui->dAtz->setValue(at.x3);
+
+    connect(ui->dEyex,SIGNAL(valueChanged(double)),this,SLOT(updadePositionCamera()));
+    connect(ui->dEyey,SIGNAL(valueChanged(double)),this,SLOT(updadePositionCamera()));
+    connect(ui->dEyez,SIGNAL(valueChanged(double)),this,SLOT(updadePositionCamera()));
+
+    connect(ui->dAtx,SIGNAL(valueChanged(double)),this,SLOT(updadePositionCamera()));
+    connect(ui->dAty,SIGNAL(valueChanged(double)),this,SLOT(updadePositionCamera()));
+    connect(ui->dAtz,SIGNAL(valueChanged(double)),this,SLOT(updadePositionCamera()));
+
+    connect(ui->dUpx,SIGNAL(valueChanged(double)),this,SLOT(updadePositionCamera()));
+    connect(ui->dUpy,SIGNAL(valueChanged(double)),this,SLOT(updadePositionCamera()));
+    connect(ui->dUpz,SIGNAL(valueChanged(double)),this,SLOT(updadePositionCamera()));
 
     //ui->comboBox->setCurrentIndex(0);
 
@@ -428,6 +468,8 @@ void MainWindow::selectObject()
 
 void MainWindow::infoObject(Object *obj)
 {
+
+    if(obj==NULL) return;
     if (ui->widgetOpenGL->getItemSelected()<0) return;
     Vec4 rot,translate,scale;
     rot = obj->getMatrixTransformation().getRotationSeted();
@@ -745,6 +787,7 @@ void MainWindow::infoLight(Light *light)
 
     infolight = true;
     LightSelected = light;
+    if(light!=NULL) selectedProperties(1);
     type_light = light->getTypeLight();
     //enableLightTab(true);
     switch(type_light){
@@ -1215,19 +1258,22 @@ void MainWindow::on_actionQuit_triggered()
 
 void MainWindow::on_actionOpen_triggered()
 {
-    QString mfile = QFileDialog::getOpenFileName(this,"Load Scene","../models/xml/");
-    if(!mfile.isEmpty()){
-        ui->showHBB->setChecked(false);
-        ui->widgetOpenGL->loadScene(mfile);
-        ui->groupBoxPropertiesObj->setVisible(false);
-    }
+    QString mfile = QFileDialog::getOpenFileName(this,"Load Scene","../models/xml/","(*.xml)");
+    loadFile(mfile);
 }
 
 void MainWindow::on_actionSave_triggered()
 {
+    if (!curFile.isEmpty()){
+        qDebug() << curFile;
+        ui->widgetOpenGL->saveScene(curFile,false);
+        return;
+    }
+
     QString mfile = QFileDialog::getSaveFileName(this,"Save Scene","../models/xml/");
     if(!mfile.isEmpty()) ui->widgetOpenGL->saveScene(mfile);
-
+    ui->actionSave_As->setEnabled(true);
+    setCurrentFile(mfile);
 
 }
 
@@ -1622,4 +1668,90 @@ void MainWindow::on_loadBump_clicked()
         ui->onScreenImageBump->setScene(sc);
 
     }
+}
+
+void MainWindow::openRecentFile()
+{
+    QAction *action = qobject_cast<QAction *>(sender());
+    if(action){
+        loadFile(action->data().toString());
+    }
+
+}
+
+void MainWindow::updateRecentFilesActions()
+{
+    QSettings settings;
+    QStringList recentFilesList = settings.value("recentFilesList").toStringList();
+
+    int numRecentFiles = qMin(recentFilesList.size(),int(MaxRecentFiles));
+
+
+    for(int i=0;i<numRecentFiles; ++i){
+
+        QString text = tr("%1 %2").arg(i+1).arg(QFileInfo(recentFilesList[i]).filePath());
+        recentFilesActs[i]->setText(text);
+        recentFilesActs[i]->setData(recentFilesList[i]);
+        recentFilesActs[i]->setVisible(true);
+    }
+
+    for(int j=numRecentFiles; j>MaxRecentFiles;j++){
+        recentFilesActs[j]->setVisible(false);
+    }
+}
+
+void MainWindow::loadFile(QString mfile)
+{
+    if(!mfile.isEmpty()){
+        QFile file(mfile);
+        if(file.open(QFile::ReadOnly)){
+            setCurrentFile(mfile);
+            ui->showHBB->setChecked(false);
+            ui->widgetOpenGL->loadScene(mfile);
+            ui->groupBoxPropertiesObj->setVisible(false);
+            ui->actionSave_As->setEnabled(true);
+        }else{
+            QMessageBox::warning(this,"Scene Build by Danilo Silva",tr("Cannot read File %1. \nError: %2").arg(mfile).arg(file.errorString()));
+        }
+    }
+}
+
+void MainWindow::setCurrentFile(QString mfile)
+{
+    curFile = mfile;
+    setWindowTitle(tr("Scene Build by Danilo Silva - %1[*]").arg(QFileInfo(curFile).filePath()));
+
+    QSettings settings;
+    QStringList recentFilesList = settings.value("recentFilesList").toStringList();
+    recentFilesList.removeAll(mfile);
+    //recentFilesList.append(mfile);
+    recentFilesList.prepend(mfile);
+    while(recentFilesList.size()>MaxRecentFiles){
+        recentFilesList.removeLast();
+    }
+    settings.setValue("recentFilesList",recentFilesList);
+    updateRecentFilesActions();
+}
+
+void MainWindow::on_actionSave_As_triggered()
+{
+    QString mfile = QFileDialog::getSaveFileName(this,"Save Scene","../models/xml/");
+    if(!mfile.isEmpty()) ui->widgetOpenGL->saveScene(mfile);
+    setCurrentFile(mfile);
+    ui->actionSave_As->setEnabled(true);
+}
+
+void MainWindow::on_actionShortcuts_triggered()
+{
+
+    QMessageBox::information(this,
+    tr("Sortcuts"),
+    tr("Select object with the mouse: O\nSelect mode view camera with mouse interaction: C\nCopy object selected: Ctrl + C\nDelete object selected: Delete\nTranslate object selected: T\nScale object selected: S\nRotate object selected: R\nModify axis x: Arrow Right & Arrow Left\nModify axis y: Arrow Down & Arrow Up\nModify axis z: Shift + Arrow Right & Shift + Arrow Left"));
+}
+
+void MainWindow::on_actionAbout_triggered()
+{
+    QMessageBox::information(this,
+    tr("About"),
+    tr("This program was developed by Danilo Borges da Silva.\n \t CRAb  2014 - 2015"));
 }

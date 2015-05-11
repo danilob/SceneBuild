@@ -14,13 +14,13 @@
 
 #define myrand ((float)(rand())/(float)(RAND_MAX) )
 
-#define OBJCUBE 0;
-#define OBJCONE 1;
-#define OBJCYLINDER 2;
-#define OBJHEMISPHERE 3;
-#define OBJPLANE 4;
-#define OBJPRISM 5;
-#define OBJSPHERE 6;
+#define OBJCUBE 0
+#define OBJCONE 1
+#define OBJCYLINDER 2
+#define OBJHEMISPHERE 3
+#define OBJPLANE 4
+#define OBJPRISM 5
+#define OBJSPHERE 6
 
 class Cube;
 

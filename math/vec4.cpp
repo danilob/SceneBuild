@@ -141,6 +141,11 @@ void Vec4::showVec4(){
     printf("(%.4f;%.4f;%.4f;%.4f)\n",x1,x2,x3,x4);
 }
 
+QString Vec4::debug()
+{
+    return QString().sprintf("(%.4f;%.4f;%.4f;%.4f)\n",x1,x2,x3,x4);
+}
+
 
 
 Vec4 Vec4::crossProduct(Vec4 a,Vec4 b){

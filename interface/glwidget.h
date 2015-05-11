@@ -49,6 +49,22 @@ public slots:
     void setTransformMatrixToObjectSelected(Matrix4x4 m);
     void setIdMaterialToObjectSelected(int i);
 
+    //add objeto
+    void addCube();
+    void addCone();
+    void addCylinder();
+    void addSphere();
+    void addPlane();
+    void addHemisphere();
+    void addPrism();
+
+    //add light
+    void addArea();
+    void addDirectional();
+    void addSpot();
+    void addPontual();
+
+
     void setLightSelected(bool b);
     void setLightSelectedDiffuse(QColor color);
     void setLightSelectedAmbient(QColor color);
@@ -136,9 +152,10 @@ public:
     void mousePressEvent(QMouseEvent *event);
     void keyPressEvent(QKeyEvent *event);
     void saveImagem(QString file);
-    void saveScene(QString file);
+    void saveScene(QString file, bool b=true);
     void loadScene(QString file);
     void drawInformation();
+    void updateObjectInterface();
 
 
 

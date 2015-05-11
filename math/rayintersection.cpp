@@ -291,6 +291,7 @@ void RayIntersection::raySphereIntersection(Mesh *mesh, Matrix4x4 transform, Ray
     pos = copy.positionRay(t_);
     auxp = pos;
     n   = pos;
+
     }/*
     if (pos.x2 <APROXIMATE){
         n = Vec4(0,-1,0);
@@ -308,6 +309,8 @@ void RayIntersection::raySphereIntersection(Mesh *mesh, Matrix4x4 transform, Ray
 
 
 
+    //qDebug() << "Here";
+    pos.showVec4();
     pos = transform.transform_position_ray(transform,pos);
     n = transform.transform_normal_ray(transform,n);
     t_ = (pos - ray.origin).module();

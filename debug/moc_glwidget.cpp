@@ -19,8 +19,8 @@
 
 QT_BEGIN_MOC_NAMESPACE
 struct qt_meta_stringdata_GLWidget_t {
-    QByteArrayData data[116];
-    char stringdata[1555];
+    QByteArrayData data[127];
+    char stringdata[1667];
 };
 #define QT_MOC_LITERAL(idx, ofs, len) \
     Q_STATIC_BYTE_ARRAY_DATA_HEADER_INITIALIZER_WITH_OFFSET(len, \
@@ -86,65 +86,76 @@ QT_MOC_LITERAL(53, 563, 34),
 QT_MOC_LITERAL(54, 598, 9),
 QT_MOC_LITERAL(55, 608, 1),
 QT_MOC_LITERAL(56, 610, 29),
-QT_MOC_LITERAL(57, 640, 16),
-QT_MOC_LITERAL(58, 657, 23),
-QT_MOC_LITERAL(59, 681, 5),
-QT_MOC_LITERAL(60, 687, 23),
-QT_MOC_LITERAL(61, 711, 24),
-QT_MOC_LITERAL(62, 736, 25),
-QT_MOC_LITERAL(63, 762, 3),
-QT_MOC_LITERAL(64, 766, 24),
-QT_MOC_LITERAL(65, 791, 3),
-QT_MOC_LITERAL(66, 795, 27),
-QT_MOC_LITERAL(67, 823, 3),
-QT_MOC_LITERAL(68, 827, 21),
-QT_MOC_LITERAL(69, 849, 5),
-QT_MOC_LITERAL(70, 855, 26),
-QT_MOC_LITERAL(71, 882, 24),
-QT_MOC_LITERAL(72, 907, 20),
-QT_MOC_LITERAL(73, 928, 20),
-QT_MOC_LITERAL(74, 949, 1),
-QT_MOC_LITERAL(75, 951, 20),
-QT_MOC_LITERAL(76, 972, 14),
-QT_MOC_LITERAL(77, 987, 6),
-QT_MOC_LITERAL(78, 994, 23),
-QT_MOC_LITERAL(79, 1018, 23),
-QT_MOC_LITERAL(80, 1042, 6),
-QT_MOC_LITERAL(81, 1049, 6),
-QT_MOC_LITERAL(82, 1056, 5),
-QT_MOC_LITERAL(83, 1062, 24),
-QT_MOC_LITERAL(84, 1087, 21),
-QT_MOC_LITERAL(85, 1109, 19),
-QT_MOC_LITERAL(86, 1129, 8),
-QT_MOC_LITERAL(87, 1138, 3),
-QT_MOC_LITERAL(88, 1142, 15),
-QT_MOC_LITERAL(89, 1158, 8),
-QT_MOC_LITERAL(90, 1167, 6),
-QT_MOC_LITERAL(91, 1174, 15),
-QT_MOC_LITERAL(92, 1190, 14),
-QT_MOC_LITERAL(93, 1205, 11),
-QT_MOC_LITERAL(94, 1217, 14),
-QT_MOC_LITERAL(95, 1232, 2),
-QT_MOC_LITERAL(96, 1235, 7),
-QT_MOC_LITERAL(97, 1243, 7),
-QT_MOC_LITERAL(98, 1251, 10),
-QT_MOC_LITERAL(99, 1262, 19),
-QT_MOC_LITERAL(100, 1282, 16),
-QT_MOC_LITERAL(101, 1299, 23),
-QT_MOC_LITERAL(102, 1323, 21),
-QT_MOC_LITERAL(103, 1345, 18),
-QT_MOC_LITERAL(104, 1364, 15),
-QT_MOC_LITERAL(105, 1380, 16),
-QT_MOC_LITERAL(106, 1397, 23),
-QT_MOC_LITERAL(107, 1421, 4),
-QT_MOC_LITERAL(108, 1426, 14),
-QT_MOC_LITERAL(109, 1441, 4),
-QT_MOC_LITERAL(110, 1446, 21),
-QT_MOC_LITERAL(111, 1468, 15),
-QT_MOC_LITERAL(112, 1484, 16),
-QT_MOC_LITERAL(113, 1501, 15),
-QT_MOC_LITERAL(114, 1517, 16),
-QT_MOC_LITERAL(115, 1534, 19)
+QT_MOC_LITERAL(57, 640, 7),
+QT_MOC_LITERAL(58, 648, 7),
+QT_MOC_LITERAL(59, 656, 11),
+QT_MOC_LITERAL(60, 668, 9),
+QT_MOC_LITERAL(61, 678, 8),
+QT_MOC_LITERAL(62, 687, 13),
+QT_MOC_LITERAL(63, 701, 8),
+QT_MOC_LITERAL(64, 710, 7),
+QT_MOC_LITERAL(65, 718, 14),
+QT_MOC_LITERAL(66, 733, 7),
+QT_MOC_LITERAL(67, 741, 10),
+QT_MOC_LITERAL(68, 752, 16),
+QT_MOC_LITERAL(69, 769, 23),
+QT_MOC_LITERAL(70, 793, 5),
+QT_MOC_LITERAL(71, 799, 23),
+QT_MOC_LITERAL(72, 823, 24),
+QT_MOC_LITERAL(73, 848, 25),
+QT_MOC_LITERAL(74, 874, 3),
+QT_MOC_LITERAL(75, 878, 24),
+QT_MOC_LITERAL(76, 903, 3),
+QT_MOC_LITERAL(77, 907, 27),
+QT_MOC_LITERAL(78, 935, 3),
+QT_MOC_LITERAL(79, 939, 21),
+QT_MOC_LITERAL(80, 961, 5),
+QT_MOC_LITERAL(81, 967, 26),
+QT_MOC_LITERAL(82, 994, 24),
+QT_MOC_LITERAL(83, 1019, 20),
+QT_MOC_LITERAL(84, 1040, 20),
+QT_MOC_LITERAL(85, 1061, 1),
+QT_MOC_LITERAL(86, 1063, 20),
+QT_MOC_LITERAL(87, 1084, 14),
+QT_MOC_LITERAL(88, 1099, 6),
+QT_MOC_LITERAL(89, 1106, 23),
+QT_MOC_LITERAL(90, 1130, 23),
+QT_MOC_LITERAL(91, 1154, 6),
+QT_MOC_LITERAL(92, 1161, 6),
+QT_MOC_LITERAL(93, 1168, 5),
+QT_MOC_LITERAL(94, 1174, 24),
+QT_MOC_LITERAL(95, 1199, 21),
+QT_MOC_LITERAL(96, 1221, 19),
+QT_MOC_LITERAL(97, 1241, 8),
+QT_MOC_LITERAL(98, 1250, 3),
+QT_MOC_LITERAL(99, 1254, 15),
+QT_MOC_LITERAL(100, 1270, 8),
+QT_MOC_LITERAL(101, 1279, 6),
+QT_MOC_LITERAL(102, 1286, 15),
+QT_MOC_LITERAL(103, 1302, 14),
+QT_MOC_LITERAL(104, 1317, 11),
+QT_MOC_LITERAL(105, 1329, 14),
+QT_MOC_LITERAL(106, 1344, 2),
+QT_MOC_LITERAL(107, 1347, 7),
+QT_MOC_LITERAL(108, 1355, 7),
+QT_MOC_LITERAL(109, 1363, 10),
+QT_MOC_LITERAL(110, 1374, 19),
+QT_MOC_LITERAL(111, 1394, 16),
+QT_MOC_LITERAL(112, 1411, 23),
+QT_MOC_LITERAL(113, 1435, 21),
+QT_MOC_LITERAL(114, 1457, 18),
+QT_MOC_LITERAL(115, 1476, 15),
+QT_MOC_LITERAL(116, 1492, 16),
+QT_MOC_LITERAL(117, 1509, 23),
+QT_MOC_LITERAL(118, 1533, 4),
+QT_MOC_LITERAL(119, 1538, 14),
+QT_MOC_LITERAL(120, 1553, 4),
+QT_MOC_LITERAL(121, 1558, 21),
+QT_MOC_LITERAL(122, 1580, 15),
+QT_MOC_LITERAL(123, 1596, 16),
+QT_MOC_LITERAL(124, 1613, 15),
+QT_MOC_LITERAL(125, 1629, 16),
+QT_MOC_LITERAL(126, 1646, 19)
     },
     "GLWidget\0listingObjects\0\0std::vector<Object*>\0"
     "objects\0listingLights\0std::vector<Light*>\0"
@@ -163,6 +174,9 @@ QT_MOC_LITERAL(115, 1534, 19)
     "motion\0setSelectedLight\0"
     "setTransformMatrixToObjectSelected\0"
     "Matrix4x4\0m\0setIdMaterialToObjectSelected\0"
+    "addCube\0addCone\0addCylinder\0addSphere\0"
+    "addPlane\0addHemisphere\0addPrism\0addArea\0"
+    "addDirectional\0addSpot\0addPontual\0"
     "setLightSelected\0setLightSelectedDiffuse\0"
     "color\0setLightSelectedAmbient\0"
     "setLightSelectedSpecular\0"
@@ -198,7 +212,7 @@ static const uint qt_meta_data_GLWidget[] = {
        7,       // revision
        0,       // classname
        0,    0, // classinfo
-      74,   14, // methods
+      85,   14, // methods
        0,    0, // properties
        0,    0, // enums/sets
        0,    0, // constructors
@@ -206,82 +220,93 @@ static const uint qt_meta_data_GLWidget[] = {
       14,       // signalCount
 
  // signals: name, argc, parameters, tag, flags
-       1,    1,  384,    2, 0x06,
-       5,    1,  387,    2, 0x06,
-       8,    1,  390,    2, 0x06,
-      10,    3,  393,    2, 0x06,
-      14,    1,  400,    2, 0x06,
-      16,    1,  403,    2, 0x06,
-      17,    1,  406,    2, 0x06,
-      18,    1,  409,    2, 0x06,
-      21,    1,  412,    2, 0x06,
-      24,    1,  415,    2, 0x06,
-      26,    1,  418,    2, 0x06,
-      28,    1,  421,    2, 0x06,
-      30,    1,  424,    2, 0x06,
-      31,    1,  427,    2, 0x06,
+       1,    1,  439,    2, 0x06,
+       5,    1,  442,    2, 0x06,
+       8,    1,  445,    2, 0x06,
+      10,    3,  448,    2, 0x06,
+      14,    1,  455,    2, 0x06,
+      16,    1,  458,    2, 0x06,
+      17,    1,  461,    2, 0x06,
+      18,    1,  464,    2, 0x06,
+      21,    1,  467,    2, 0x06,
+      24,    1,  470,    2, 0x06,
+      26,    1,  473,    2, 0x06,
+      28,    1,  476,    2, 0x06,
+      30,    1,  479,    2, 0x06,
+      31,    1,  482,    2, 0x06,
 
  // slots: name, argc, parameters, tag, flags
-      32,    1,  430,    2, 0x0a,
-      34,    1,  433,    2, 0x0a,
-      36,    1,  436,    2, 0x0a,
-      37,    1,  439,    2, 0x0a,
-      38,    1,  442,    2, 0x0a,
-      40,    3,  445,    2, 0x0a,
-      41,    1,  452,    2, 0x0a,
-      42,    1,  455,    2, 0x0a,
-      44,    1,  458,    2, 0x0a,
-      46,    0,  461,    2, 0x0a,
-      47,    1,  462,    2, 0x0a,
-      48,    0,  465,    2, 0x0a,
-      49,    1,  466,    2, 0x0a,
-      50,    1,  469,    2, 0x0a,
-      52,    1,  472,    2, 0x0a,
-      53,    1,  475,    2, 0x0a,
-      56,    1,  478,    2, 0x0a,
-      57,    1,  481,    2, 0x0a,
-      58,    1,  484,    2, 0x0a,
-      60,    1,  487,    2, 0x0a,
-      61,    1,  490,    2, 0x0a,
-      62,    1,  493,    2, 0x0a,
-      64,    1,  496,    2, 0x0a,
-      66,    1,  499,    2, 0x0a,
-      68,    1,  502,    2, 0x0a,
-      70,    1,  505,    2, 0x0a,
-      71,    1,  508,    2, 0x0a,
-      72,    1,  511,    2, 0x0a,
-      73,    1,  514,    2, 0x0a,
-      75,    1,  517,    2, 0x0a,
-      76,    1,  520,    2, 0x0a,
-      78,    1,  523,    2, 0x0a,
-      79,    1,  526,    2, 0x0a,
-      80,    2,  529,    2, 0x0a,
-      83,    1,  534,    2, 0x0a,
-      84,    1,  537,    2, 0x0a,
-      85,    0,  540,    2, 0x0a,
-      86,    1,  541,    2, 0x0a,
-      49,    1,  544,    2, 0x0a,
-      88,    0,  547,    2, 0x0a,
-      89,    0,  548,    2, 0x0a,
-      91,    0,  549,    2, 0x0a,
-      92,    0,  550,    2, 0x0a,
-      93,    3,  551,    2, 0x0a,
-      98,    0,  558,    2, 0x0a,
-      99,    1,  559,    2, 0x0a,
-     100,    1,  562,    2, 0x0a,
-     101,    1,  565,    2, 0x0a,
-     102,    1,  568,    2, 0x0a,
-     103,    1,  571,    2, 0x0a,
-     104,    1,  574,    2, 0x0a,
-     105,    1,  577,    2, 0x0a,
-     106,    1,  580,    2, 0x0a,
-     108,    1,  583,    2, 0x0a,
-     110,    1,  586,    2, 0x0a,
-     111,    1,  589,    2, 0x0a,
-     112,    1,  592,    2, 0x0a,
-     113,    1,  595,    2, 0x0a,
-     114,    1,  598,    2, 0x0a,
-     115,    1,  601,    2, 0x0a,
+      32,    1,  485,    2, 0x0a,
+      34,    1,  488,    2, 0x0a,
+      36,    1,  491,    2, 0x0a,
+      37,    1,  494,    2, 0x0a,
+      38,    1,  497,    2, 0x0a,
+      40,    3,  500,    2, 0x0a,
+      41,    1,  507,    2, 0x0a,
+      42,    1,  510,    2, 0x0a,
+      44,    1,  513,    2, 0x0a,
+      46,    0,  516,    2, 0x0a,
+      47,    1,  517,    2, 0x0a,
+      48,    0,  520,    2, 0x0a,
+      49,    1,  521,    2, 0x0a,
+      50,    1,  524,    2, 0x0a,
+      52,    1,  527,    2, 0x0a,
+      53,    1,  530,    2, 0x0a,
+      56,    1,  533,    2, 0x0a,
+      57,    0,  536,    2, 0x0a,
+      58,    0,  537,    2, 0x0a,
+      59,    0,  538,    2, 0x0a,
+      60,    0,  539,    2, 0x0a,
+      61,    0,  540,    2, 0x0a,
+      62,    0,  541,    2, 0x0a,
+      63,    0,  542,    2, 0x0a,
+      64,    0,  543,    2, 0x0a,
+      65,    0,  544,    2, 0x0a,
+      66,    0,  545,    2, 0x0a,
+      67,    0,  546,    2, 0x0a,
+      68,    1,  547,    2, 0x0a,
+      69,    1,  550,    2, 0x0a,
+      71,    1,  553,    2, 0x0a,
+      72,    1,  556,    2, 0x0a,
+      73,    1,  559,    2, 0x0a,
+      75,    1,  562,    2, 0x0a,
+      77,    1,  565,    2, 0x0a,
+      79,    1,  568,    2, 0x0a,
+      81,    1,  571,    2, 0x0a,
+      82,    1,  574,    2, 0x0a,
+      83,    1,  577,    2, 0x0a,
+      84,    1,  580,    2, 0x0a,
+      86,    1,  583,    2, 0x0a,
+      87,    1,  586,    2, 0x0a,
+      89,    1,  589,    2, 0x0a,
+      90,    1,  592,    2, 0x0a,
+      91,    2,  595,    2, 0x0a,
+      94,    1,  600,    2, 0x0a,
+      95,    1,  603,    2, 0x0a,
+      96,    0,  606,    2, 0x0a,
+      97,    1,  607,    2, 0x0a,
+      49,    1,  610,    2, 0x0a,
+      99,    0,  613,    2, 0x0a,
+     100,    0,  614,    2, 0x0a,
+     102,    0,  615,    2, 0x0a,
+     103,    0,  616,    2, 0x0a,
+     104,    3,  617,    2, 0x0a,
+     109,    0,  624,    2, 0x0a,
+     110,    1,  625,    2, 0x0a,
+     111,    1,  628,    2, 0x0a,
+     112,    1,  631,    2, 0x0a,
+     113,    1,  634,    2, 0x0a,
+     114,    1,  637,    2, 0x0a,
+     115,    1,  640,    2, 0x0a,
+     116,    1,  643,    2, 0x0a,
+     117,    1,  646,    2, 0x0a,
+     119,    1,  649,    2, 0x0a,
+     121,    1,  652,    2, 0x0a,
+     122,    1,  655,    2, 0x0a,
+     123,    1,  658,    2, 0x0a,
+     124,    1,  661,    2, 0x0a,
+     125,    1,  664,    2, 0x0a,
+     126,    1,  667,    2, 0x0a,
 
  // signals: parameters
     QMetaType::Void, 0x80000000 | 3,    4,
@@ -317,48 +342,59 @@ static const uint qt_meta_data_GLWidget[] = {
     QMetaType::Void, QMetaType::Int,   35,
     QMetaType::Void, 0x80000000 | 54,   55,
     QMetaType::Void, QMetaType::Int,   35,
+    QMetaType::Void,
+    QMetaType::Void,
+    QMetaType::Void,
+    QMetaType::Void,
+    QMetaType::Void,
+    QMetaType::Void,
+    QMetaType::Void,
+    QMetaType::Void,
+    QMetaType::Void,
+    QMetaType::Void,
+    QMetaType::Void,
     QMetaType::Void, QMetaType::Bool,   33,
-    QMetaType::Void, QMetaType::QColor,   59,
-    QMetaType::Void, QMetaType::QColor,   59,
-    QMetaType::Void, QMetaType::QColor,   59,
-    QMetaType::Void, 0x80000000 | 9,   63,
-    QMetaType::Void, 0x80000000 | 9,   65,
-    QMetaType::Void, 0x80000000 | 9,   67,
-    QMetaType::Void, QMetaType::Int,   69,
-    QMetaType::Void, QMetaType::Int,   69,
-    QMetaType::Void, QMetaType::Int,   69,
-    QMetaType::Void, QMetaType::QString,   39,
+    QMetaType::Void, QMetaType::QColor,   70,
+    QMetaType::Void, QMetaType::QColor,   70,
+    QMetaType::Void, QMetaType::QColor,   70,
     QMetaType::Void, 0x80000000 | 9,   74,
+    QMetaType::Void, 0x80000000 | 9,   76,
+    QMetaType::Void, 0x80000000 | 9,   78,
+    QMetaType::Void, QMetaType::Int,   80,
+    QMetaType::Void, QMetaType::Int,   80,
+    QMetaType::Void, QMetaType::Int,   80,
+    QMetaType::Void, QMetaType::QString,   39,
+    QMetaType::Void, 0x80000000 | 9,   85,
     QMetaType::Void, 0x80000000 | 9,   33,
-    QMetaType::Void, QMetaType::Int,   77,
+    QMetaType::Void, QMetaType::Int,   88,
     QMetaType::Void, QMetaType::Bool,   33,
     QMetaType::Void, QMetaType::Bool,   33,
-    QMetaType::Void, QMetaType::Float, QMetaType::Float,   81,   82,
+    QMetaType::Void, QMetaType::Float, QMetaType::Float,   92,   93,
     QMetaType::Void, QMetaType::Bool,   33,
     QMetaType::Void, QMetaType::QString,   39,
     QMetaType::Void,
-    QMetaType::Void, QMetaType::Int,   87,
+    QMetaType::Void, QMetaType::Int,   98,
     QMetaType::Void, 0x80000000 | 19,   20,
     QMetaType::Int,
-    0x80000000 | 90,
+    0x80000000 | 101,
     0x80000000 | 3,
     0x80000000 | 6,
-    QMetaType::Void, 0x80000000 | 94, QMetaType::Int, QMetaType::Int,   95,   96,   97,
+    QMetaType::Void, 0x80000000 | 105, QMetaType::Int, QMetaType::Int,  106,  107,  108,
     QMetaType::Int,
     QMetaType::Void, QMetaType::Int,   27,
     QMetaType::Void, 0x80000000 | 29,    2,
-    QMetaType::Void, QMetaType::Int,   87,
-    QMetaType::Void, QMetaType::Int,   87,
+    QMetaType::Void, QMetaType::Int,   98,
+    QMetaType::Void, QMetaType::Int,   98,
     QMetaType::Void, QMetaType::Bool,   33,
     QMetaType::Void, QMetaType::Bool,   33,
     QMetaType::Void, QMetaType::Bool,   33,
-    QMetaType::Void, QMetaType::Bool,  107,
-    QMetaType::Void, QMetaType::Int,  109,
-    QMetaType::Void, QMetaType::Int,  109,
-    QMetaType::Void, QMetaType::Double,   87,
-    QMetaType::Void, QMetaType::Double,   87,
-    QMetaType::Void, QMetaType::Int,   87,
-    QMetaType::Void, QMetaType::Bool,  107,
+    QMetaType::Void, QMetaType::Bool,  118,
+    QMetaType::Void, QMetaType::Int,  120,
+    QMetaType::Void, QMetaType::Int,  120,
+    QMetaType::Void, QMetaType::Double,   98,
+    QMetaType::Void, QMetaType::Double,   98,
+    QMetaType::Void, QMetaType::Int,   98,
+    QMetaType::Void, QMetaType::Bool,  118,
     QMetaType::Void, QMetaType::Bool,   33,
 
        0        // eod
@@ -400,60 +436,71 @@ void GLWidget::qt_static_metacall(QObject *_o, QMetaObject::Call _c, int _id, vo
         case 28: _t->setSelectedLight((*reinterpret_cast< int(*)>(_a[1]))); break;
         case 29: _t->setTransformMatrixToObjectSelected((*reinterpret_cast< Matrix4x4(*)>(_a[1]))); break;
         case 30: _t->setIdMaterialToObjectSelected((*reinterpret_cast< int(*)>(_a[1]))); break;
-        case 31: _t->setLightSelected((*reinterpret_cast< bool(*)>(_a[1]))); break;
-        case 32: _t->setLightSelectedDiffuse((*reinterpret_cast< QColor(*)>(_a[1]))); break;
-        case 33: _t->setLightSelectedAmbient((*reinterpret_cast< QColor(*)>(_a[1]))); break;
-        case 34: _t->setLightSelectedSpecular((*reinterpret_cast< QColor(*)>(_a[1]))); break;
-        case 35: _t->setLightSelectedDirection((*reinterpret_cast< Vec4(*)>(_a[1]))); break;
-        case 36: _t->setLightSelectedPosition((*reinterpret_cast< Vec4(*)>(_a[1]))); break;
-        case 37: _t->setLightSelectedAttenuation((*reinterpret_cast< Vec4(*)>(_a[1]))); break;
-        case 38: _t->setLightSelectedAngle((*reinterpret_cast< int(*)>(_a[1]))); break;
-        case 39: _t->setLightSelectedAngleInner((*reinterpret_cast< int(*)>(_a[1]))); break;
-        case 40: _t->setLightSelectedExponent((*reinterpret_cast< int(*)>(_a[1]))); break;
-        case 41: _t->setLightSelectedName((*reinterpret_cast< QString(*)>(_a[1]))); break;
-        case 42: _t->setLightSelectedVecA((*reinterpret_cast< Vec4(*)>(_a[1]))); break;
-        case 43: _t->setLightSelectedVecB((*reinterpret_cast< Vec4(*)>(_a[1]))); break;
-        case 44: _t->setEnergyLight((*reinterpret_cast< int(*)>(_a[1]))); break;
-        case 45: _t->setEnabledLightSelected((*reinterpret_cast< bool(*)>(_a[1]))); break;
-        case 46: _t->setVisibleLightSelected((*reinterpret_cast< bool(*)>(_a[1]))); break;
-        case 47: _t->setDOF((*reinterpret_cast< float(*)>(_a[1])),(*reinterpret_cast< float(*)>(_a[2]))); break;
-        case 48: _t->setEnabledObjectSelected((*reinterpret_cast< bool(*)>(_a[1]))); break;
-        case 49: _t->setNameObjectSelected((*reinterpret_cast< QString(*)>(_a[1]))); break;
-        case 50: _t->removeLightSelected(); break;
-        case 51: _t->addLight((*reinterpret_cast< int(*)>(_a[1]))); break;
-        case 52: _t->setSelectedObject((*reinterpret_cast< Object*(*)>(_a[1]))); break;
-        case 53: { int _r = _t->getItemSelected();
+        case 31: _t->addCube(); break;
+        case 32: _t->addCone(); break;
+        case 33: _t->addCylinder(); break;
+        case 34: _t->addSphere(); break;
+        case 35: _t->addPlane(); break;
+        case 36: _t->addHemisphere(); break;
+        case 37: _t->addPrism(); break;
+        case 38: _t->addArea(); break;
+        case 39: _t->addDirectional(); break;
+        case 40: _t->addSpot(); break;
+        case 41: _t->addPontual(); break;
+        case 42: _t->setLightSelected((*reinterpret_cast< bool(*)>(_a[1]))); break;
+        case 43: _t->setLightSelectedDiffuse((*reinterpret_cast< QColor(*)>(_a[1]))); break;
+        case 44: _t->setLightSelectedAmbient((*reinterpret_cast< QColor(*)>(_a[1]))); break;
+        case 45: _t->setLightSelectedSpecular((*reinterpret_cast< QColor(*)>(_a[1]))); break;
+        case 46: _t->setLightSelectedDirection((*reinterpret_cast< Vec4(*)>(_a[1]))); break;
+        case 47: _t->setLightSelectedPosition((*reinterpret_cast< Vec4(*)>(_a[1]))); break;
+        case 48: _t->setLightSelectedAttenuation((*reinterpret_cast< Vec4(*)>(_a[1]))); break;
+        case 49: _t->setLightSelectedAngle((*reinterpret_cast< int(*)>(_a[1]))); break;
+        case 50: _t->setLightSelectedAngleInner((*reinterpret_cast< int(*)>(_a[1]))); break;
+        case 51: _t->setLightSelectedExponent((*reinterpret_cast< int(*)>(_a[1]))); break;
+        case 52: _t->setLightSelectedName((*reinterpret_cast< QString(*)>(_a[1]))); break;
+        case 53: _t->setLightSelectedVecA((*reinterpret_cast< Vec4(*)>(_a[1]))); break;
+        case 54: _t->setLightSelectedVecB((*reinterpret_cast< Vec4(*)>(_a[1]))); break;
+        case 55: _t->setEnergyLight((*reinterpret_cast< int(*)>(_a[1]))); break;
+        case 56: _t->setEnabledLightSelected((*reinterpret_cast< bool(*)>(_a[1]))); break;
+        case 57: _t->setVisibleLightSelected((*reinterpret_cast< bool(*)>(_a[1]))); break;
+        case 58: _t->setDOF((*reinterpret_cast< float(*)>(_a[1])),(*reinterpret_cast< float(*)>(_a[2]))); break;
+        case 59: _t->setEnabledObjectSelected((*reinterpret_cast< bool(*)>(_a[1]))); break;
+        case 60: _t->setNameObjectSelected((*reinterpret_cast< QString(*)>(_a[1]))); break;
+        case 61: _t->removeLightSelected(); break;
+        case 62: _t->addLight((*reinterpret_cast< int(*)>(_a[1]))); break;
+        case 63: _t->setSelectedObject((*reinterpret_cast< Object*(*)>(_a[1]))); break;
+        case 64: { int _r = _t->getItemSelected();
             if (_a[0]) *reinterpret_cast< int*>(_a[0]) = _r; }  break;
-        case 54: { Scene* _r = _t->getScene();
+        case 65: { Scene* _r = _t->getScene();
             if (_a[0]) *reinterpret_cast< Scene**>(_a[0]) = _r; }  break;
-        case 55: { std::vector<Object*> _r = _t->getObjectsScene();
+        case 66: { std::vector<Object*> _r = _t->getObjectsScene();
             if (_a[0]) *reinterpret_cast< std::vector<Object*>*>(_a[0]) = _r; }  break;
-        case 56: { std::vector<Light*> _r = _t->getLightsScene();
+        case 67: { std::vector<Light*> _r = _t->getLightsScene();
             if (_a[0]) *reinterpret_cast< std::vector<Light*>*>(_a[0]) = _r; }  break;
-        case 57: _t->renderScene((*reinterpret_cast< QGraphicsView*(*)>(_a[1])),(*reinterpret_cast< int(*)>(_a[2])),(*reinterpret_cast< int(*)>(_a[3]))); break;
-        case 58: { int _r = _t->numberRays();
+        case 68: _t->renderScene((*reinterpret_cast< QGraphicsView*(*)>(_a[1])),(*reinterpret_cast< int(*)>(_a[2])),(*reinterpret_cast< int(*)>(_a[3]))); break;
+        case 69: { int _r = _t->numberRays();
             if (_a[0]) *reinterpret_cast< int*>(_a[0]) = _r; }  break;
-        case 59: _t->setValueProgressRay((*reinterpret_cast< int(*)>(_a[1]))); break;
-        case 60: _t->showSampleRender((*reinterpret_cast< QImage*(*)>(_a[1]))); break;
-        case 61: _t->setPhotonsNearsCaustics((*reinterpret_cast< int(*)>(_a[1]))); break;
-        case 62: _t->setPhotonsNearsGlobal((*reinterpret_cast< int(*)>(_a[1]))); break;
-        case 63: _t->setFilterPhotonMap((*reinterpret_cast< bool(*)>(_a[1]))); break;
-        case 64: _t->setRenderGlobal((*reinterpret_cast< bool(*)>(_a[1]))); break;
-        case 65: _t->setRenderCaustic((*reinterpret_cast< bool(*)>(_a[1]))); break;
-        case 66: _t->setVisiblePhotonCaustic((*reinterpret_cast< bool(*)>(_a[1]))); break;
-        case 67: _t->setSizePhotons((*reinterpret_cast< int(*)>(_a[1]))); break;
-        case 68: _t->setSizePhotonsCaustic((*reinterpret_cast< int(*)>(_a[1]))); break;
-        case 69: _t->setRadiusGlobal((*reinterpret_cast< double(*)>(_a[1]))); break;
-        case 70: _t->setRadiusCaustic((*reinterpret_cast< double(*)>(_a[1]))); break;
-        case 71: _t->setDepthPhotons((*reinterpret_cast< int(*)>(_a[1]))); break;
-        case 72: _t->setVisiblePhoton((*reinterpret_cast< bool(*)>(_a[1]))); break;
-        case 73: _t->setEnabledPhotonMap((*reinterpret_cast< bool(*)>(_a[1]))); break;
+        case 70: _t->setValueProgressRay((*reinterpret_cast< int(*)>(_a[1]))); break;
+        case 71: _t->showSampleRender((*reinterpret_cast< QImage*(*)>(_a[1]))); break;
+        case 72: _t->setPhotonsNearsCaustics((*reinterpret_cast< int(*)>(_a[1]))); break;
+        case 73: _t->setPhotonsNearsGlobal((*reinterpret_cast< int(*)>(_a[1]))); break;
+        case 74: _t->setFilterPhotonMap((*reinterpret_cast< bool(*)>(_a[1]))); break;
+        case 75: _t->setRenderGlobal((*reinterpret_cast< bool(*)>(_a[1]))); break;
+        case 76: _t->setRenderCaustic((*reinterpret_cast< bool(*)>(_a[1]))); break;
+        case 77: _t->setVisiblePhotonCaustic((*reinterpret_cast< bool(*)>(_a[1]))); break;
+        case 78: _t->setSizePhotons((*reinterpret_cast< int(*)>(_a[1]))); break;
+        case 79: _t->setSizePhotonsCaustic((*reinterpret_cast< int(*)>(_a[1]))); break;
+        case 80: _t->setRadiusGlobal((*reinterpret_cast< double(*)>(_a[1]))); break;
+        case 81: _t->setRadiusCaustic((*reinterpret_cast< double(*)>(_a[1]))); break;
+        case 82: _t->setDepthPhotons((*reinterpret_cast< int(*)>(_a[1]))); break;
+        case 83: _t->setVisiblePhoton((*reinterpret_cast< bool(*)>(_a[1]))); break;
+        case 84: _t->setEnabledPhotonMap((*reinterpret_cast< bool(*)>(_a[1]))); break;
         default: ;
         }
     } else if (_c == QMetaObject::RegisterMethodArgumentMetaType) {
         switch (_id) {
         default: *reinterpret_cast<int*>(_a[0]) = -1; break;
-        case 57:
+        case 68:
             switch (*reinterpret_cast<int*>(_a[1])) {
             default: *reinterpret_cast<int*>(_a[0]) = -1; break;
             case 0:
@@ -576,13 +623,13 @@ int GLWidget::qt_metacall(QMetaObject::Call _c, int _id, void **_a)
     if (_id < 0)
         return _id;
     if (_c == QMetaObject::InvokeMetaMethod) {
-        if (_id < 74)
+        if (_id < 85)
             qt_static_metacall(this, _c, _id, _a);
-        _id -= 74;
+        _id -= 85;
     } else if (_c == QMetaObject::RegisterMethodArgumentMetaType) {
-        if (_id < 74)
+        if (_id < 85)
             qt_static_metacall(this, _c, _id, _a);
-        _id -= 74;
+        _id -= 85;
     }
     return _id;
 }

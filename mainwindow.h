@@ -163,6 +163,14 @@ private slots:
 
     void on_loadBump_clicked();
 
+    void openRecentFile();
+
+    void on_actionSave_As_triggered();
+
+    void on_actionShortcuts_triggered();
+
+    void on_actionAbout_triggered();
+
 private:
     Ui::MainWindow *ui;
     QColor m_color;
@@ -171,6 +179,18 @@ private:
     QColor m_color_difuse;
     QColor m_color_material_view;
     QColor m_color_material_object;
+
+
+    void updateRecentFilesActions();
+    void loadFile(QString mfile);
+    void setCurrentFile(QString mfile);
+
+
+    QString curFile; //arquivo corrente
+    enum {MaxRecentFiles = 10};
+    QAction *recentFilesActs[MaxRecentFiles];
+
+
 
 };
 

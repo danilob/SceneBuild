@@ -19,8 +19,8 @@
 
 QT_BEGIN_MOC_NAMESPACE
 struct qt_meta_stringdata_MainWindow_t {
-    QByteArrayData data[97];
-    char stringdata[1571];
+    QByteArrayData data[101];
+    char stringdata[1667];
 };
 #define QT_MOC_LITERAL(idx, ofs, len) \
     Q_STATIC_BYTE_ARRAY_DATA_HEADER_INITIALIZER_WITH_OFFSET(len, \
@@ -120,12 +120,16 @@ QT_MOC_LITERAL(87, 1408, 36),
 QT_MOC_LITERAL(88, 1445, 23),
 QT_MOC_LITERAL(89, 1469, 22),
 QT_MOC_LITERAL(90, 1492, 19),
-QT_MOC_LITERAL(91, 1512, 5),
-QT_MOC_LITERAL(92, 1518, 8),
-QT_MOC_LITERAL(93, 1527, 8),
-QT_MOC_LITERAL(94, 1536, 8),
-QT_MOC_LITERAL(95, 1545, 12),
-QT_MOC_LITERAL(96, 1558, 11)
+QT_MOC_LITERAL(91, 1512, 14),
+QT_MOC_LITERAL(92, 1527, 26),
+QT_MOC_LITERAL(93, 1554, 28),
+QT_MOC_LITERAL(94, 1583, 24),
+QT_MOC_LITERAL(95, 1608, 5),
+QT_MOC_LITERAL(96, 1614, 8),
+QT_MOC_LITERAL(97, 1623, 8),
+QT_MOC_LITERAL(98, 1632, 8),
+QT_MOC_LITERAL(99, 1641, 12),
+QT_MOC_LITERAL(100, 1654, 11)
     },
     "MainWindow\0colorBackgroudCastingChange\0"
     "\0arg\0colorMaterialView\0colorMaterialObject\0"
@@ -171,7 +175,10 @@ QT_MOC_LITERAL(96, 1558, 11)
     "on_actionSpot_triggered\0on_deleteLight_clicked\0"
     "on_actionScreanShot_Render_triggered\0"
     "on_actionCone_triggered\0on_loadTexture_clicked\0"
-    "on_loadBump_clicked\0color\0colorDif\0"
+    "on_loadBump_clicked\0openRecentFile\0"
+    "on_actionSave_As_triggered\0"
+    "on_actionShortcuts_triggered\0"
+    "on_actionAbout_triggered\0color\0colorDif\0"
     "colorAmb\0colorSpe\0colorMatView\0"
     "colorMatObj\0"
 };
@@ -183,85 +190,89 @@ static const uint qt_meta_data_MainWindow[] = {
        7,       // revision
        0,       // classname
        0,    0, // classinfo
-      69,   14, // methods
-       6,  476, // properties
+      73,   14, // methods
+       6,  500, // properties
        0,    0, // enums/sets
        0,    0, // constructors
        0,       // flags
        6,       // signalCount
 
  // signals: name, argc, parameters, tag, flags
-       1,    1,  359,    2, 0x06,
-       4,    1,  362,    2, 0x06,
-       5,    1,  365,    2, 0x06,
-       6,    1,  368,    2, 0x06,
-       7,    1,  371,    2, 0x06,
-       8,    1,  374,    2, 0x06,
+       1,    1,  379,    2, 0x06,
+       4,    1,  382,    2, 0x06,
+       5,    1,  385,    2, 0x06,
+       6,    1,  388,    2, 0x06,
+       7,    1,  391,    2, 0x06,
+       8,    1,  394,    2, 0x06,
 
  // slots: name, argc, parameters, tag, flags
-       9,    1,  377,    2, 0x0a,
-      11,    1,  380,    2, 0x0a,
-      13,    1,  383,    2, 0x0a,
-      15,    1,  386,    2, 0x0a,
-      16,    0,  389,    2, 0x0a,
-      17,    0,  390,    2, 0x0a,
-      18,    1,  391,    2, 0x0a,
-      20,    1,  394,    2, 0x0a,
-      23,    0,  397,    2, 0x0a,
-      24,    3,  398,    2, 0x0a,
-      27,    1,  405,    2, 0x0a,
-      29,    0,  408,    2, 0x0a,
-      30,    0,  409,    2, 0x0a,
-      31,    0,  410,    2, 0x0a,
-      32,    1,  411,    2, 0x0a,
-      34,    0,  414,    2, 0x0a,
-      35,    1,  415,    2, 0x0a,
-      38,    0,  418,    2, 0x0a,
-      39,    1,  419,    2, 0x0a,
-      42,    0,  422,    2, 0x0a,
-      43,    0,  423,    2, 0x0a,
-      44,    0,  424,    2, 0x0a,
-      45,    0,  425,    2, 0x0a,
-      46,    0,  426,    2, 0x0a,
-      47,    0,  427,    2, 0x0a,
-      48,    0,  428,    2, 0x0a,
-      49,    1,  429,    2, 0x0a,
-      52,    0,  432,    2, 0x0a,
-      53,    1,  433,    2, 0x0a,
-      55,    0,  436,    2, 0x0a,
-      56,    0,  437,    2, 0x0a,
-      57,    0,  438,    2, 0x0a,
-      58,    0,  439,    2, 0x0a,
-      59,    0,  440,    2, 0x0a,
-      60,    0,  441,    2, 0x0a,
-      61,    0,  442,    2, 0x08,
-      62,    0,  443,    2, 0x08,
-      63,    0,  444,    2, 0x08,
-      64,    0,  445,    2, 0x08,
-      65,    1,  446,    2, 0x08,
-      66,    0,  449,    2, 0x08,
-      67,    0,  450,    2, 0x08,
-      68,    0,  451,    2, 0x08,
-      69,    1,  452,    2, 0x08,
-      71,    0,  455,    2, 0x08,
-      72,    1,  456,    2, 0x08,
-      74,    0,  459,    2, 0x08,
-      75,    0,  460,    2, 0x08,
-      76,    0,  461,    2, 0x08,
-      77,    0,  462,    2, 0x08,
-      78,    0,  463,    2, 0x08,
-      79,    0,  464,    2, 0x08,
-      80,    0,  465,    2, 0x08,
-      81,    0,  466,    2, 0x08,
-      82,    0,  467,    2, 0x08,
-      83,    0,  468,    2, 0x08,
-      84,    0,  469,    2, 0x08,
-      85,    0,  470,    2, 0x08,
-      86,    0,  471,    2, 0x08,
-      87,    0,  472,    2, 0x08,
-      88,    0,  473,    2, 0x08,
-      89,    0,  474,    2, 0x08,
-      90,    0,  475,    2, 0x08,
+       9,    1,  397,    2, 0x0a,
+      11,    1,  400,    2, 0x0a,
+      13,    1,  403,    2, 0x0a,
+      15,    1,  406,    2, 0x0a,
+      16,    0,  409,    2, 0x0a,
+      17,    0,  410,    2, 0x0a,
+      18,    1,  411,    2, 0x0a,
+      20,    1,  414,    2, 0x0a,
+      23,    0,  417,    2, 0x0a,
+      24,    3,  418,    2, 0x0a,
+      27,    1,  425,    2, 0x0a,
+      29,    0,  428,    2, 0x0a,
+      30,    0,  429,    2, 0x0a,
+      31,    0,  430,    2, 0x0a,
+      32,    1,  431,    2, 0x0a,
+      34,    0,  434,    2, 0x0a,
+      35,    1,  435,    2, 0x0a,
+      38,    0,  438,    2, 0x0a,
+      39,    1,  439,    2, 0x0a,
+      42,    0,  442,    2, 0x0a,
+      43,    0,  443,    2, 0x0a,
+      44,    0,  444,    2, 0x0a,
+      45,    0,  445,    2, 0x0a,
+      46,    0,  446,    2, 0x0a,
+      47,    0,  447,    2, 0x0a,
+      48,    0,  448,    2, 0x0a,
+      49,    1,  449,    2, 0x0a,
+      52,    0,  452,    2, 0x0a,
+      53,    1,  453,    2, 0x0a,
+      55,    0,  456,    2, 0x0a,
+      56,    0,  457,    2, 0x0a,
+      57,    0,  458,    2, 0x0a,
+      58,    0,  459,    2, 0x0a,
+      59,    0,  460,    2, 0x0a,
+      60,    0,  461,    2, 0x0a,
+      61,    0,  462,    2, 0x08,
+      62,    0,  463,    2, 0x08,
+      63,    0,  464,    2, 0x08,
+      64,    0,  465,    2, 0x08,
+      65,    1,  466,    2, 0x08,
+      66,    0,  469,    2, 0x08,
+      67,    0,  470,    2, 0x08,
+      68,    0,  471,    2, 0x08,
+      69,    1,  472,    2, 0x08,
+      71,    0,  475,    2, 0x08,
+      72,    1,  476,    2, 0x08,
+      74,    0,  479,    2, 0x08,
+      75,    0,  480,    2, 0x08,
+      76,    0,  481,    2, 0x08,
+      77,    0,  482,    2, 0x08,
+      78,    0,  483,    2, 0x08,
+      79,    0,  484,    2, 0x08,
+      80,    0,  485,    2, 0x08,
+      81,    0,  486,    2, 0x08,
+      82,    0,  487,    2, 0x08,
+      83,    0,  488,    2, 0x08,
+      84,    0,  489,    2, 0x08,
+      85,    0,  490,    2, 0x08,
+      86,    0,  491,    2, 0x08,
+      87,    0,  492,    2, 0x08,
+      88,    0,  493,    2, 0x08,
+      89,    0,  494,    2, 0x08,
+      90,    0,  495,    2, 0x08,
+      91,    0,  496,    2, 0x08,
+      92,    0,  497,    2, 0x08,
+      93,    0,  498,    2, 0x08,
+      94,    0,  499,    2, 0x08,
 
  // signals: parameters
     QMetaType::Void, QMetaType::QColor,    3,
@@ -335,14 +346,18 @@ static const uint qt_meta_data_MainWindow[] = {
     QMetaType::Void,
     QMetaType::Void,
     QMetaType::Void,
+    QMetaType::Void,
+    QMetaType::Void,
+    QMetaType::Void,
+    QMetaType::Void,
 
  // properties: name, type, flags
-      91, QMetaType::QColor, 0x00495001,
-      92, QMetaType::QColor, 0x00495001,
-      93, QMetaType::QColor, 0x00495001,
-      94, QMetaType::QColor, 0x00495001,
       95, QMetaType::QColor, 0x00495001,
       96, QMetaType::QColor, 0x00495001,
+      97, QMetaType::QColor, 0x00495001,
+      98, QMetaType::QColor, 0x00495001,
+      99, QMetaType::QColor, 0x00495001,
+     100, QMetaType::QColor, 0x00495001,
 
  // properties: notify_signal_id
        0,
@@ -429,6 +444,10 @@ void MainWindow::qt_static_metacall(QObject *_o, QMetaObject::Call _c, int _id, 
         case 66: _t->on_actionCone_triggered(); break;
         case 67: _t->on_loadTexture_clicked(); break;
         case 68: _t->on_loadBump_clicked(); break;
+        case 69: _t->openRecentFile(); break;
+        case 70: _t->on_actionSave_As_triggered(); break;
+        case 71: _t->on_actionShortcuts_triggered(); break;
+        case 72: _t->on_actionAbout_triggered(); break;
         default: ;
         }
     } else if (_c == QMetaObject::IndexOfMethod) {
@@ -498,13 +517,13 @@ int MainWindow::qt_metacall(QMetaObject::Call _c, int _id, void **_a)
     if (_id < 0)
         return _id;
     if (_c == QMetaObject::InvokeMetaMethod) {
-        if (_id < 69)
+        if (_id < 73)
             qt_static_metacall(this, _c, _id, _a);
-        _id -= 69;
+        _id -= 73;
     } else if (_c == QMetaObject::RegisterMethodArgumentMetaType) {
-        if (_id < 69)
+        if (_id < 73)
             *reinterpret_cast<int*>(_a[0]) = -1;
-        _id -= 69;
+        _id -= 73;
     }
 #ifndef QT_NO_PROPERTIES
       else if (_c == QMetaObject::ReadProperty) {
