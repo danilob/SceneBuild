@@ -469,6 +469,7 @@ void GLWidget::mousePressEvent(QMouseEvent *event)
         updateCameraGL();
         Object *obj_sel = RayTracing::objectClicked(scene,event->pos().x(),height-event->pos().y());
         setSelectedObject(obj_sel);
+        return;
     }else if((modeview==MODE_OBJECT) & (event->button() == Qt::RightButton)){
         updateCameraGL();
         QMenu menu;
@@ -586,6 +587,7 @@ void GLWidget::keyPressEvent(QKeyEvent *event)
             scene->makeClone(scene->getObjecSelected());
             listingObjects(scene->objects);
             showObjectSelected(scene->getObjecSelected());
+            return;
         }
     }
 
@@ -632,6 +634,15 @@ void GLWidget::keyPressEvent(QKeyEvent *event)
     if(event->key() == Qt::Key_Delete ){
         if (modeview!=MODE_DEFAULT && scene->getObjecSelected())
             removeObjectSelected();
+    }
+
+    if(modeview!=MODE_DEFAULT && event->key() == Qt::Key_M ){
+        for(int i=0;i<scene->objects.size();i++){
+            if(scene->objects.at(i)->isSelected()){
+                 Matrix4x4 mat = scene->objects.at(i)->getMatrixTransformation();
+                 mat.showMatrix4x4();
+            }
+        }
     }
 
 

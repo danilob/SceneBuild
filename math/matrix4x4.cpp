@@ -409,7 +409,7 @@ Vec4 Matrix4x4::transform_position_ray(Matrix4x4 t,Vec4 p)
     result = result.multMatrix(result.multMatrix(trans,rot),scale);
     Vec4 out = scale.transpose().vector(p);
     out = rot.transpose().vector(out);
-    out = scale.transpose().vector(out);
+    //out = scale.transpose().vector(out);
     return this->transpose().vector(p);
 }
 

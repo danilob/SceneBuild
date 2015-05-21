@@ -1010,7 +1010,7 @@ void Scene::makeClone(Object *obj)
     obj->setSelected(false);
     clone->setSelected(true);
     Matrix4x4 m = clone->getMatrixTransformation();
-    m.setTranslate(m.getTranslateSeted()+Vec4(0.5,0.0,0.0));
+    m.setTranslate(m.getTranslateSeted()+Vec4(0.5,0.5,0.5));
     clone->setTransform(m);
 
 }
