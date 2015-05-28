@@ -6,7 +6,7 @@
    <rect>
     <x>0</x>
     <y>0</y>
-    <width>913</width>
+    <width>929</width>
     <height>843</height>
    </rect>
   </property>
@@ -48,7 +48,7 @@
              <x>0</x>
              <y>0</y>
              <width>248</width>
-             <height>925</height>
+             <height>886</height>
             </rect>
            </property>
            <layout class="QVBoxLayout" name="verticalLayout_2">
@@ -905,7 +905,7 @@ QGroupBox{
              <x>0</x>
              <y>0</y>
              <width>254</width>
-             <height>672</height>
+             <height>677</height>
             </rect>
            </property>
            <layout class="QFormLayout" name="formLayout">
@@ -1737,7 +1737,7 @@ QGroupBox{
              <x>0</x>
              <y>0</y>
              <width>248</width>
-             <height>688</height>
+             <height>689</height>
             </rect>
            </property>
            <layout class="QGridLayout" name="gridLayout_4">
@@ -1763,8 +1763,8 @@ QGroupBox{
                 <rect>
                  <x>0</x>
                  <y>0</y>
-                 <width>230</width>
-                 <height>515</height>
+                 <width>98</width>
+                 <height>90</height>
                 </rect>
                </property>
                <attribute name="label">
@@ -1781,8 +1781,8 @@ QGroupBox{
                 <rect>
                  <x>0</x>
                  <y>0</y>
-                 <width>230</width>
-                 <height>515</height>
+                 <width>98</width>
+                 <height>90</height>
                 </rect>
                </property>
                <attribute name="label">
@@ -1799,8 +1799,8 @@ QGroupBox{
                 <rect>
                  <x>0</x>
                  <y>0</y>
-                 <width>230</width>
-                 <height>515</height>
+                 <width>98</width>
+                 <height>28</height>
                 </rect>
                </property>
                <attribute name="label">
@@ -1890,7 +1890,7 @@ QGroupBox{
                  <x>0</x>
                  <y>0</y>
                  <width>230</width>
-                 <height>515</height>
+                 <height>521</height>
                 </rect>
                </property>
                <attribute name="label">
@@ -2175,8 +2175,8 @@ QGroupBox{
                 <rect>
                  <x>0</x>
                  <y>0</y>
-                 <width>230</width>
-                 <height>515</height>
+                 <width>98</width>
+                 <height>28</height>
                 </rect>
                </property>
                <attribute name="label">
@@ -2309,7 +2309,7 @@ QGroupBox{
           <rect>
            <x>0</x>
            <y>0</y>
-           <width>893</width>
+           <width>909</width>
            <height>100</height>
           </rect>
          </property>
@@ -2780,8 +2780,8 @@ QGroupBox{
     <rect>
      <x>0</x>
      <y>0</y>
-     <width>913</width>
-     <height>25</height>
+     <width>929</width>
+     <height>24</height>
     </rect>
    </property>
    <widget class="QMenu" name="menuFile">
@@ -2911,9 +2911,6 @@ QGroupBox{
   <action name="actionCube">
    <property name="text">
     <string>Cube</string>
-   </property>
-   <property name="shortcut">
-    <string>Ctrl+C</string>
    </property>
   </action>
   <action name="actionCylinder">
