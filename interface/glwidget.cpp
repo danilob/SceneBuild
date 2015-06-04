@@ -229,6 +229,34 @@ void GLWidget::initializeGL()
 void GLWidget::paintGL()
 {
     glClear(GL_COLOR_BUFFER_BIT | GL_DEPTH_BUFFER_BIT);
+    glLoadIdentity();
+
+    //determinação da camera
+
+    const float ar = scene->viewport[0]>0 ? (float) scene->viewport[0] / (float) scene->viewport[1] : 1.0;
+    glViewport(0, 0, scene->viewport[0], scene->viewport[1]);
+    glMatrixMode(GL_PROJECTION);
+    glLoadIdentity();
+    //glFrustum(-ar, ar, -1.0, 1.0, 2.0, 100.0);
+    gluPerspective(scene->projection.x(),scene->projection.y(),scene->projection.z(),scene->projection.w());
+
+    glMatrixMode(GL_MODELVIEW);
+    glLoadIdentity();
+
+    glPushMatrix();
+        glTranslated(-0.33,-0.22,-0.6);
+        gluLookAt(cam->eye.x(),cam->eye.y(),cam->eye.z(), cam->at.x(),cam->at.y(),cam->at.z(), cam->up.x(),cam->up.y(),cam->up.z());
+        glTranslated(cam->eye.x(),cam->eye.y(),cam->eye.z());
+        Draw::drawAxisCameraView(0.02);
+    glPopMatrix();
+    glPushMatrix();
+
+    gluLookAt(cam->eye.x1,cam->eye.x2,cam->eye.x3, cam->at.x1,cam->at.x2,cam->at.x3, cam->up.x1,cam->up.x2,cam->up.x3);
+
+    //fim de determinação da camera
+    glPushMatrix();
+    //glPushMatrix();
+    //glPushMatrix();
 
 
 
@@ -243,6 +271,8 @@ void GLWidget::paintGL()
 
         glPushMatrix();
         drawInformation();
+        glPopMatrix();
+
         glPopMatrix();
 
     //updateGL();

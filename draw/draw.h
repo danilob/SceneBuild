@@ -1,10 +1,9 @@
 #ifndef DRAW_H
 #define DRAW_H
 #include "math/vec4.h"
-//#include "block/cube.h"
-//#include "block/cylinder.h"
-//#include "block/prism.h"
-//#include "block/hemisphere.h"
+#include <GL/gl.h>
+#include <GL/glu.h>
+
 class Draw
 {
 
@@ -16,6 +15,9 @@ public:
     static void drawPoint(Vec4 v,int size=1,Vec4 color=Vec4(1,1,1));     //desenha um ponto
     static void drawSelection(Vec4 max,Vec4 min);                        //desenha um cubo selecionado o objeto
 
+    static void drawAxisCameraView(float tam);
+
+    static void gluClosedCylinder(GLUquadric *quad, GLdouble base, GLdouble top, GLdouble height, GLint slices, GLint stacks);
 };
 
 #endif // DRAW_H

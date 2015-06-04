@@ -216,3 +216,75 @@ void Draw::drawSelection(Vec4 max, Vec4 min)
     return;
 
 }
+
+void Draw::drawAxisCameraView(float tam)
+{
+      const GLfloat redMaterial[]={1.,0.,0.,1.};
+      const GLfloat greenMaterial[]={0.,1.,0.,1.};
+      const GLfloat blueMaterial[]={0.,0.,1.,1.};
+      const GLfloat blackMaterial[]={0.,0.,0.,1.};
+
+      glMaterialfv(GL_FRONT, GL_AMBIENT, blackMaterial);
+      glMaterialfv(GL_FRONT, GL_DIFFUSE, blackMaterial);
+      glMaterialfv(GL_FRONT, GL_SPECULAR, blackMaterial);
+
+      GLUquadricObj *quad = gluNewQuadric();
+
+      glLineWidth( 2 ) ;
+
+      //x
+      glMaterialfv(GL_FRONT, GL_AMBIENT, redMaterial);
+
+      glBegin(GL_LINES);
+        glVertex3f(0,0,0);
+        glVertex3f(tam,0,0);
+      glEnd();
+      glPushMatrix();
+        glRotated(90,0,1,0);
+        glTranslated(0,0,tam);
+        Draw::gluClosedCylinder(quad, 0.1*tam, 0, 0.2*tam, 10, 10);
+      glPopMatrix();
+      //y
+      glMaterialfv(GL_FRONT, GL_AMBIENT, greenMaterial);
+
+      glBegin(GL_LINES);
+        glVertex3f(0,0,0);
+        glVertex3f(0,tam,0);
+      glEnd();
+      glPushMatrix();
+        glRotated(90,-1,0,0);
+        glTranslated(0,0,tam);
+        Draw::gluClosedCylinder(quad, 0.1*tam, 0, 0.2*tam, 10, 10);
+      glPopMatrix();
+      //z
+      glMaterialfv(GL_FRONT, GL_AMBIENT, blueMaterial);
+
+      glBegin(GL_LINES);
+        glVertex3f(0,0,0);
+        glVertex3f(0,0,tam);
+      glEnd();
+      glPushMatrix();
+        glTranslated(0,0,tam);
+        Draw::gluClosedCylinder(quad, 0.1*tam, 0, 0.2*tam, 10, 10);
+      glPopMatrix();
+
+      glLineWidth( 1 ) ;
+
+      gluDeleteQuadric( quad );
+      glPopMatrix();
+}
+
+void Draw::gluClosedCylinder(GLUquadric* quad, GLdouble base, GLdouble top, GLdouble height, GLint slices, GLint stacks)
+{
+    gluQuadricNormals(quad, GLU_SMOOTH);			// Create Smooth Normals
+    gluQuadricTexture(quad, GL_TRUE);		  		// Create Texture Coords
+
+    glPushMatrix();
+    gluCylinder(quad, base, top, height, slices, stacks);
+    glTranslated(0,0,height);
+    gluDisk(quad, 0, top, slices, stacks);
+    glRotated(180,0,1,0);
+    glTranslated(0,0,height);
+    gluDisk(quad, 0, base, slices, stacks);
+    glPopMatrix();
+}
